@@ -92,10 +92,102 @@
           <li class="nav-item ">
             <a class="nav-link" onclick=mandarMensaje();> Redactar Mensaje</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Listado
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" value="alumno" onclick= 'mostrarListadoAlumno()'; >Listado Básico Alumno </a>
+              <a class="dropdown-item" href="#" value="grupo"  onclick= 'mostrarListadoGrupo()'; >Listado  Grupo </a>
+         </li>
         </ul>
     </div>   
 </nav>
 
+<!--FORMULARIOS-->
+<!--ALUMNOS-->
+<div id="divFrmAltaAlumno" class="container col-6 ">
+    <h1>Formulario Alumno</h1>
+    <form action="" name="formAlumno" class="m-2" id="formAlumno">
+        <div class="form-group row">
+          <label for="txtDni" class="col-4 col-form-label">DNI:</label> 
+          <div class="col-8">
+            <input id="txtDni" name="txtDni" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtNombre" class="col-4 col-form-label">Nombre:</label> 
+          <div class="col-8">
+            <input id="txtNombre" name="txtNombre" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtApellido" class="col-4 col-form-label">Apellidos:</label> 
+          <div class="col-8">
+            <input id="txtApellido" name="txtApellido" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtEdad" class="col-4 col-form-label">Edad:</label> 
+          <div class="col-8">
+            <input id="txtEdad" name="txtEdad" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label> 
+          <div class="col-8">
+            <input id="txtGrupo" name="txtGrupo" type="text" class="form-control">
+          </div>
+        </div> 
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button name="submit" type="button" onclick=añadeAlumno(); class="btn btn-primary">Añadir</button>
+          </div>
+        </div>
+      </form>
+      </div>
+
+      <!--TUTOR-->
+      <div id="divFrmAltaTutor" class="container col-6 ">
+          <h1>Formulario Tutor</h1>
+        <form action="" name="formTutor" class="m-2" id="formTutor">
+            <div class="form-group row">
+              <label for="txtDni" class="col-4 col-form-label">DNI:</label> 
+              <div class="col-8">
+                <input id="txtDni" name="txtDni" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtNombre" class="col-4 col-form-label">Nombre:</label> 
+              <div class="col-8">
+                <input id="txtNombre" name="txtNombre" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtApellido" class="col-4 col-form-label">Apellidos:</label> 
+              <div class="col-8">
+                <input id="txtApellido" name="txtApellido" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtAsignatura" class="col-4 col-form-label">Asignatura:</label> 
+              <div class="col-8">
+                <input id="txtAsignatura" name="txtAsignatura" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label> 
+              <div class="col-8">
+                <input id="txtGrupo" name="txtGrupo" type="text" class="form-control">
+              </div>
+            </div> 
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="submit" type="button" onclick=añadeTutor(); class="btn btn-primary">Añadir</button>
+              </div>
+            </div>
+          </form>
+          </div>
     
 
 
