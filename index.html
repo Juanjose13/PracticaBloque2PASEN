@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Trabajo Grupo 6.PASEN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar navbar-expand">
+        <a class="navbar-brand" href="#">PASEN</a>
+
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a href="#" id="btnIncio" name="btnInicio" value="Inicio" data-toggle="modal" data-target="#inicio">Inicio de Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="inicio">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="inicio">
+                        <form id="frmInicio" class="form-horizontal">
+                            <fieldset>
+
+                                <legend>Iniciar Sesión</legend>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="txtCorreo">Correo</label>
+                                    <div class="col-md-3">
+                                        <input id="txtCorreo" name="txtCorreo" type="text" placeholder="Correo" class="form-control input-md" required>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="txtContraseña">Contraseña</label>
+                                    <div class="col-md-3">
+                                        <input id="txtContraseña" name="txtContraseña" type="password" placeholder="Contraseña" class="form-control input-md" required>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="btnInicio"></label>
+                                    <div class="col-md-4">
+                                        <input type="button" id="btnInicio" name="btnInicio" class="btn btn-primary" value="Entrar" onclick="" />
+                                        <input type="button" id="btnVolver" name="btnVolver" class="btn btn-primary" value="Cerrar" data-dismiss="modal" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
