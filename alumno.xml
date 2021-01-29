@@ -1,0 +1,20 @@
+<alumnos>
+ <alumno dni="57342062D">
+    <nombre>Pedro</nombre>
+    <apellido>Gutiérrez</apellido>
+    <edad>15</edad>
+    <grupo>B</grupo>
+ </alumno> 
+ <alumno dni="44506375B">
+    <nombre>Pepe</nombre>
+    <apellido>Marín</apellido>
+    <edad>14</edad>
+    <grupo>A</grupo>
+ </alumno> 
+ <alumno dni="55663344G">
+    <nombre>Agustín</nombre>
+    <apellido>Pérez</apellido>
+    <edad>15</edad>
+    <grupo>B</grupo>
+ </alumno>  
+</alumnos>
