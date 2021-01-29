@@ -11,7 +11,7 @@ function empezar(){
 function iniciar()
 {
     if (document.getElementById ("txtContraseña").value=='usuario' && document.getElementById("txtCorreo").value=='usuario')
-    { 
+    {   
         navegador.style.display="block";
         divFrmAltaAlumno.style.display="none";
         divFrmAltaTutor.style.display="none";
