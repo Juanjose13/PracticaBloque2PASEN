@@ -62,10 +62,10 @@ function añadeAlumno(){
     
     
     if (oPasen.altaAlumnos(nuevoAlumno)) {
-        oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
-        limpiarCampos();
+       // oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
+        //limpiarCampos();
     } else {
-        oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
+        //oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
     }
     
     formAlumno.reset();
