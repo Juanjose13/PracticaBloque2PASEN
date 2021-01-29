@@ -4,7 +4,7 @@ function iniciar()
 {
     if (document.getElementById ("txtContraseña").value=='usuario' && document.getElementById("txtCorreo").value=='usuario')
     { 
-        document.getElementById("navegador").removeAttribute("hidden");
+        navegador.style.display="block";
         document.getElementById("navegador").removeAttribute("hidden");
         document.getElementById("navegador").removeAttribute("hidden");
         // document.getElementById("frmInicio").submit(); 
@@ -18,6 +18,7 @@ function iniciar()
 function altaAlumno(){
 
     divFrmAltaAlumno.style.display="block";
-    document.getElementById("divFrmAltaAlumno").removeAttribute("hidden");
+    divFrmAltaAlumno.style.display="none";
+    divFrmAltaAlumno.style.display="none";
 
 }
