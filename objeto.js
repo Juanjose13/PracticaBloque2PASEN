@@ -11,14 +11,37 @@ class Pasen {
     }
 
     altaAlumnos(oAlumno) {
+        let bResultado = true;
 
+        if (this._alumno.some(oA => oA.alumno == oAlumno.alumno)) {
+            bResultado = false;
+        } else {
+            this._alumno.push(oAlumno);
+        }
+        return bResultado;
     }
 
     altaTutor(oTutor) {
+        let bResultado = true;
+
+        if (this._tutor.some(oT => oT.tutor == oTutor.tutor)) {
+            bResultado = false;
+        } else {
+            this._tutor.push(oTutor);
+        }
+        return bResultado;
 
     }
 
     altaGrupo(oGrupo) {
+        let bResultado = true;
+
+        if (this._grupo.some(oG => oG.grupo == oGrupo.grupo)) {
+            bResultado = false;
+        } else {
+            this._grupo.push(oGrupo);
+        }
+        return bResultado;
 
     }
 
