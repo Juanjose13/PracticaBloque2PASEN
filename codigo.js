@@ -4,10 +4,7 @@ function iniciar()
 {
     if (document.getElementById ("txtContraseña").value=='usuario' && document.getElementById("txtCorreo").value=='usuario')
     { 
-        document.getElementById("navegador").removeAttribute("hidden");
-        document.getElementById("navegador").removeAttribute("hidden");
-        document.getElementById("navegador").removeAttribute("hidden");
-        // document.getElementById("frmInicio").submit(); 
+        navegador.style.display="block";
     } 
     else{ 
          alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
@@ -18,6 +15,22 @@ function iniciar()
 function altaAlumno(){
 
     divFrmAltaAlumno.style.display="block";
-    document.getElementById("divFrmAltaAlumno").removeAttribute("hidden");
-
+    divFrmAltaTutor.style.display="none";
+    divFrmAltaGrupo.style.display="none";
+    
 }
+
+function altaTutor(){
+    
+    divFrmAltaTutor.style.display="block";
+    divFrmAltaAlumno.style.display="none";
+    divFrmAltaGrupo.style.display="none";
+}
+
+function altaGrupo(){
+
+    divFrmAltaGrupo.style.display="block";
+    divFrmAltaAlumno.style.display="none";
+    divFrmAltaTutor.style.display="none";
+}
+
