@@ -45,6 +45,10 @@ function altaGrupo(){
     divFrmAltaTutor.style.display="none";
 }
 
+// function validar(){
+
+// }
+
 function añadeAlumno(){
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
     // let oMensajes = document.getElementById("mensajesConductores");
@@ -54,15 +58,28 @@ function añadeAlumno(){
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
         alert("Dni Erróneo");
-        document.getElementById("txtDni").style.color = "red";
+        document.getElementById("txtDni").focus();
         return false;
+    }else if(oVerificaDni.test(sDni)){
+        // document.getElementById("txtDni").removeAttribute("color");
+
     }
     // if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
 
     let sNombre = oFormularioAltaAlumno.txtNombre.value.trim();
+    let sNom = document.getElementById("txtNombre");
     if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
+        // sNom.addEventListener("input", function(){
+        //     if(sNom.validity.typeMismatch){
+        //         sNom.setCustomValidity("Se espera que escribas un nombre");
+        //     }else{
+        //         sNom.setCustomValidity("");
+        //     }
+        // });
+        
         alert("Campo vacío");
-        document.getElementById("txtNombre").style.color = "red";
+        document.getElementById("txtNombre").focus();
+
         return false;
     }
     let sApellidos = oFormularioAltaAlumno.txtApellido.value.trim();
