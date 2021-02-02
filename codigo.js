@@ -53,14 +53,16 @@ function añadeAlumno(){
     let sDni = oFormularioAltaAlumno.txtDni.value.trim();
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
-        alert("Mete mejor el DNI hastista!");
-        formAlumno.txtDni.style.backgroundcolor= "red";
+        alert("Dni Erróneo");
+        document.getElementById("txtDni").style.color = "red";
         return false;
     }
     // if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
 
     let sNombre = oFormularioAltaAlumno.txtNombre.value.trim();
     if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
+        alert("Campo vacío");
+        document.getElementById("txtNombre").style.color = "red";
         return false;
     }
     let sApellidos = oFormularioAltaAlumno.txtApellido.value.trim();
