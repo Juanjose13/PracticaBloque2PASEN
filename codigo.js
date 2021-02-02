@@ -45,45 +45,22 @@ function altaGrupo(){
     divFrmAltaTutor.style.display="none";
 }
 
-function validar(){
-    //GENERAL -> DNI / NOMBRE (Requerido) / GRUPO ()
-    // ESPECIFICO -> Alumno(EDAD) Tutor(ASIGNATURA)
-    // let sDni = formAlumno.txtDni.value;
-    valor = document.getElementById("campo").value;
-    valor = document.getElementById("campo").value;
-    
-    
-    // DNI 
-    // var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
-
-    // if( !(/^\d{8}[A-Z]$/.test(valor)) ) {
-//   return false;
-// }
-
-// if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
-    //   return false;
-    // }
-}
-
-
-
-
-
 function añadeAlumno(){
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
     // let oMensajes = document.getElementById("mensajesConductores");
     
     //VALIDAR FORMULARIOS -> DNI 11222333A {9 nºs y letra en mayúscula}
     let sDni = oFormularioAltaAlumno.txtDni.value.trim();
-    let oLetras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
+        alert("Mete mejor el DNI hastista!");
+        formAlumno.txtDni.style.backgroundcolor= "red";
         return false;
     }
-    if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
+    // if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
 
     let sNombre = oFormularioAltaAlumno.txtNombre.value.trim();
-    if(sNombre == NULL || sNombre.length == 0 || /^\s+$/.test(sNombre)){
+    if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
         return false;
     }
     let sApellidos = oFormularioAltaAlumno.txtApellido.value.trim();
