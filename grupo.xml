@@ -1,0 +1,17 @@
+<grupos>
+  <grupo id="3450">
+    <nAlumnos>30</nAlumnos>
+    <aula>Grande</aula>
+    <centro>Lucús Solís</centro>
+  </grupo>
+  <grupo id="4500">
+    <nAlumnos>25</nAlumnos>
+    <aula>Grande</aula>
+    <centro>Soles Martín</centro>
+  </grupo>
+  <grupo id="5690">
+    <nAlumnos>20</nAlumnos>
+    <aula>Mediana</aula>
+    <centro>Agata Frank</centro>
+  </grupo>
+</grupos>
