@@ -67,7 +67,7 @@ function añadeAlumno(){
     // if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
 
     let sNombre = oFormularioAltaAlumno.txtNombre.value.trim();
-    let sNom = document.getElementById("txtNombre");
+    // let sNom = document.getElementById("txtNombre");
     if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
         // sNom.addEventListener("input", function(){
         //     if(sNom.validity.typeMismatch){
@@ -83,8 +83,19 @@ function añadeAlumno(){
         return false;
     }
     let sApellidos = oFormularioAltaAlumno.txtApellido.value.trim();
+    if(sApellidos.length == 0 || /^\s+$/.test(sApellidos)){
+        alert("Campo vacío, rellénelo");
+        document.getElementById("txtApellido").focus();
+        return false;
+    }
     // VALIDAR SOLO NÚMEROS
+    let oVerificaEdad = /^\d{2}$/;
     let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
+    if(!oVerificaDni.test(sEdad)){
+        alert("Dni Erróneo");
+        document.getElementById("txtDni").focus();
+        return false;
+    }
     let sGrupo = oFormularioAltaAlumno.txtGrupo.value.trim();
     
     
