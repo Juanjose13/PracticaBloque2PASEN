@@ -112,6 +112,12 @@ function añadeAlumno(){
     formAlumno.reset();
     
 }
+
+
+
+
+
+
 function añadeTutor()
 {
     
