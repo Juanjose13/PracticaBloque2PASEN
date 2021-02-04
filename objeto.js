@@ -5,15 +5,12 @@ class Pasen {
         this._tutor = [];
         this._grupo = [];
         this._mensaje = [];
-
-
-
     }
 
     altaAlumnos(oAlumno) {
         let bResultado = true;
 
-        if (this._alumno.some(oA => oA.alumno == oAlumno.alumno)) {
+        if (this._alumno.some(oA => oA.dni == oAlumno.dni)== true) {
             bResultado = false;
         } else {
             this._alumno.push(oAlumno);

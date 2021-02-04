@@ -2,25 +2,51 @@
 "use strict";
 var oPasen = new Pasen();
 
-function empezar(){
-    navegador.style.display="none";
-    divFrmAltaAlumno.style.display="none";
-    divFrmAltaTutor.style.display="none";
-    divFrmAltaGrupo.style.display="none";
+frmInicio.btnInicio.addEventListener("click", validarLogin, false);
+
+navegador.style.display="none";
+divFrmAltaAlumno.style.display="none";
+divFrmAltaTutor.style.display="none";
+divFrmAltaGrupo.style.display="none";
+
+function validarLogin(){
+    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
+    let oValidarPass = frmInicio.txtContraseña.value.trim();
+    let iniciar=true;
+
+    let expReg = /^([a-zá-ú]{3,})+$/i;
+    if(oValidarUsuario == "" || !expReg.test(oValidarPass)){        
+        frmInicio.txtCorreo.style.color = "red";
+        iniciar=false;   
+    }else{
+        frmInicio.txtCorreo.style.color = "black";
+    }
+    
+    if(oValidarPass == "" || !expReg.test(oValidarPass)){
+        frmInicio.txtContraseña.style.color = "red";
+        iniciar=false;
+    }else{
+        frmInicio.txtContraseña.style.color = "black";
+    }
+    
+    if(iniciar ){
+        if(oValidarUsuario=='usuario' && oValidarPass=='usuario'){
+            frmInicio.btnInicio.setAttribute("data-dismiss", "modal");
+            navegador.style.display="block";
+            divFrmAltaAlumno.style.display="none";
+            divFrmAltaTutor.style.display="none";
+            divFrmAltaGrupo.style.display="none";
+            frmInicio.reset();
+        }else{
+            
+            frmInicio.txtCorreo.style.color = "red";
+            frmInicio.txtContraseña.style.color = "red";
+            alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+
+        }
+    }
 }
-function iniciar()
-{
-    if (document.getElementById ("txtContraseña").value=='usuario' && document.getElementById("txtCorreo").value=='usuario')
-    {   
-        navegador.style.display="block";
-        divFrmAltaAlumno.style.display="none";
-        divFrmAltaTutor.style.display="none";
-        divFrmAltaGrupo.style.display="none";
-    } 
-    else{ 
-         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
-    } 
-}
+
 
 
 function altaAlumno(){
@@ -49,6 +75,8 @@ function altaGrupo(){
 
 // }
 
+formAlumno.btnAñadeAlumno.addEventListener("click",añadeAlumno,false);
+
 function añadeAlumno(){
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
     // let oMensajes = document.getElementById("mensajesConductores");
@@ -58,46 +86,59 @@ function añadeAlumno(){
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
         alert("Dni Erróneo");
+        document.getElementById("txtDni").style.color= "red";
         document.getElementById("txtDni").focus();
         return false;
-    }else if(oVerificaDni.test(sDni)){
-        // document.getElementById("txtDni").removeAttribute("color");
-
+    }else{
+        document.getElementById("txtDni").style.color= "black";
+        
     }
-    // if(sDni.charAt(8) != oLetras[(sDni.substring(0,8))%23]){return false;}
-
+    
     let sNombre = oFormularioAltaAlumno.txtNombre.value.trim();
-    // let sNom = document.getElementById("txtNombre");
+    
     if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
-        // sNom.addEventListener("input", function(){
-        //     if(sNom.validity.typeMismatch){
-        //         sNom.setCustomValidity("Se espera que escribas un nombre");
-        //     }else{
-        //         sNom.setCustomValidity("");
-        //     }
-        // });
         
         alert("Campo vacío");
+        document.getElementById("txtNombre").style.color= "red";
         document.getElementById("txtNombre").focus();
-
+        
         return false;
+    }else{
+
+        document.getElementById("txtNombre").style.color= "black";
     }
     let sApellidos = oFormularioAltaAlumno.txtApellido.value.trim();
     if(sApellidos.length == 0 || /^\s+$/.test(sApellidos)){
         alert("Campo vacío, rellénelo");
         document.getElementById("txtApellido").focus();
+        document.getElementById("txtApellido").style.color= "red";
+        
         return false;
+    }else{
+        document.getElementById("txtApellido").style.color= "black";
     }
     // VALIDAR SOLO NÚMEROS
-    let oVerificaEdad = /^\d{2}$/;
     let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
-    if(!oVerificaDni.test(sEdad)){
-        alert("Dni Erróneo");
-        document.getElementById("txtDni").focus();
+    let oVerificaEdad = /^\d{2}$/;
+    if(!oVerificaEdad.test(sEdad)){
+        alert("Edad Errónea");
+        document.getElementById("txtEdad").focus();
+        document.getElementById("txtEdad").style.color= "red";
         return false;
+    }else{
+        document.getElementById("txtEdad").style.color= "black";
     }
     let sGrupo = oFormularioAltaAlumno.txtGrupo.value.trim();
-    
+    let oVerificaGrupo = /([A-Z]\1)?$/;
+    // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
+    if(!oVerificaGrupo.test(sGrupo)){
+        alert("Seleccione el grupo");
+        document.getElementById("txtGrupo").focus();
+        document.getElementById("txtGrupo").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("txtGrupo").style.color= "black";
+    }
     
     let nuevoAlumno = new Alumno(sDni, sNombre, sApellidos, sEdad, sGrupo);
     
@@ -105,18 +146,14 @@ function añadeAlumno(){
     if (oPasen.altaAlumnos(nuevoAlumno)) {
         // oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
         // limpiarCampos();
+        formAlumno.reset();
     } else {
         // oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
     }
     
-    formAlumno.reset();
     
 }
-
-
-
-
-
+// formTutor.btnAñadeAlumno.addEventListener("click",añadeTutor,false);
 
 function añadeTutor()
 {
@@ -126,10 +163,66 @@ function añadeTutor()
 
 
     let sDni = oFormularioTutor.txtDni.value.trim();
+    let oVerificaDni = /^\d{8}[A-Z]$/;
+    if(!oVerificaDni.test(sDni)){
+        alert("Dni Erróneo");
+        document.getElementById("txtDni").style.color= "red";
+        document.getElementById("txtDni").focus();
+        return false;
+    }else{
+        document.getElementById("txtDni").style.color= "black";
+        
+    }
+
     let sNombre = oFormularioTutor.txtNombre.value.trim();
+    
+    if(sNombre == null || sNombre.length == 0 || /^\s+$/.test(sNombre)){
+        
+        alert("Campo vacío");
+        document.getElementById("txtNombre").style.color= "red";
+        document.getElementById("txtNombre").focus();
+        document.getElementById("txtNombre").style.color= "red";
+        
+        return false;
+    }else{
+        document.getElementById("txtNombre").style.color= "black";
+    }
+
     let sApellidos = oFormularioTutor.txtApellido.value.trim();
+    if(sApellidos.length == 0 || /^\s+$/.test(sApellidos)){
+        alert("Campo vacío, rellénelo");
+        document.getElementById("txtApellido").focus();
+        document.getElementById("txtApellido").style.color= "red";
+        
+        return false;
+    }else{
+        document.getElementById("txtApellido").style.color= "black";
+    }
+
+
+
     let sAsignatura = oFormularioTutor.txtAsignatura.value.trim();
+    if(sAsignatura.length=="" || /^\s+$/.test(sAsignatura)){
+        alert("Asignatura Errónea");
+        document.getElementById("txtAsignatura").focus();
+        document.getElementById("txtAsignatura").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("txtAsignatura").style.color= "black";
+    }
+
+
     let sGrupo = oFormularioTutor.txtGrupo.value.trim();
+    let oVerificaGrupo = /([A-Z]\1)?$/;
+    // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
+    if(!oVerificaGrupo.test(sGrupo)){
+        alert("Seleccione el grupo");
+        document.getElementById("txtGrupo").focus();
+        document.getElementById("txtGrupo").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("txtGrupo").style.color= "black";
+    }
 
       let nuevoTutor = new Tutor(sDni, sNombre, sApellidos, sAsignatura, sGrupo);
 
@@ -170,3 +263,35 @@ function añadeGrupo(){
     formGrupo.reset();
     
 }
+
+
+// MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 
+// creo un formulario para enviar oMensajes desde el administrador hacia (tutor o alumno)
+//     un select de Alumno (si selecciono un alumno, ponga el select de tutor en blanco)
+//     un select de Tutor  (si selecciono un tutor, ponga el select de alumno en blanco)
+//     text encabezado
+//     text cuerpo del oMensajes
+
+//     para enviar el mensaje ver si se lo envio al alumno o al tutor (la que esta rellene)
+
+// function genTablaClientes(array, id) {
+//     let tabla = document.createElement("TABLE");
+//     tabla.id = id;
+//     tabla.classList.add("table");
+//     let thead = tabla.createTHead();
+//     let fila = thead.insertRow(-1);
+//     array.forEach(titulo => {
+//       th = fila.insertCell(-1);
+//       th.textContent = titulo;
+//     });
+//     tabla.addEventListener("click", e => {
+//       let idCliente;
+//       if (e.target.tagName == "BUTTON") {
+//         idCliente = e.target.parentNode.parentNode.cells[0].textContent;
+//         miPasteleria.delCliente(idCliente);
+//         e.target.parentNode.parentNode.remove();
+//       }
+//     });
+//     tabla.appendChild(document.createElement("TBODY"));
+//     return tabla;
+//   }
