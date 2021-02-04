@@ -10,7 +10,7 @@ class Pasen {
     altaAlumnos(oAlumno) {
         let bResultado = true;
 
-        if (this._alumno.some(oA => oA.dni == oAlumno.dni)== true) {
+        if (this._alumno.some(oA => oA.dni == oAlumno.dni) == true) {
             bResultado = false;
         } else {
             this._alumno.push(oAlumno);
@@ -21,7 +21,7 @@ class Pasen {
     altaTutor(oTutor) {
         let bResultado = true;
 
-        if (this._tutor.some(oT => oT.tutor == oTutor.tutor)) {
+        if (this._tutor.some(oT => oT.dni == oTutor.dni) == true) {
             bResultado = false;
         } else {
             this._tutor.push(oTutor);
@@ -33,7 +33,7 @@ class Pasen {
     altaGrupo(oGrupo) {
         let bResultado = true;
 
-        if (this._grupo.some(oG => oG.grupo == oGrupo.grupo)) {
+        if (this._grupo.some(oG => oG.idGrupo == oGrupo.idGrupo) == true) {
             bResultado = false;
         } else {
             this._grupo.push(oGrupo);
