@@ -49,6 +49,7 @@ function validarLogin(){
 }
 
 adXmlAlumno();
+adXmlTutor();
 
 //CARGA DE LOS XML
 function loadXMLDoc(filename) 
@@ -75,9 +76,24 @@ function adXmlAlumno() {
       let apellido = oAlumno.querySelector("apellido").textContent;
       let edad = oAlumno.querySelector("edad").textContent;
       let grupo = oAlumno.querySelector("grupo").textContent;
-      alert(dni,nombre,apellido);
+      
       oPasen.altaAlumnos(new Alumno(dni, nombre, apellido, edad, grupo));
     });
+  }
+
+  function adXmlTutor()
+  {
+     let datos = loadXMLDoc("tutor.xml");
+     datos.querySelectorAll("tutor").forEach(oTutor =>{
+         let dni = oTutor.querySelectorAll("dni").textContent;
+         let nombre = oTutor.querySelector("nombre").textContent;
+         let apellido = oTutor.querySelector("apellido").textContent;
+         let asignatura = oTutor.querySelector("asignatura").textContent;
+         let grupo = oAlumno.querySelector("grupo").textContent;
+
+         oPasen.altaTutor(new Tutor(dni, nombre, apellido, asignatura, grupo));
+
+     });
   }
 
   //mostrar y ocultar LISTADOS 
@@ -345,6 +361,62 @@ document
         
     
     }
+
+    //LISTADO TUTOR
+
+    document
+.querySelector("#listadoTutor")
+  .addEventListener("click", listadoTutores);
+  
+  
+  function listadoTutores()
+  {
+      
+      mostrar("#divMostrarListaTutor");
+      let tabla = genTablaTutor(
+          ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO",],
+          "estaTablaTutor");
+          
+          
+          document.querySelector("#divMostrarListaTutor").appendChild(tabla);
+          oPasen._tutor.forEach(oTutor =>{if(oTutor instanceof Tutor)
+            document.querySelector("#estaTablaTutor").tBodies[0].appendChild(oAlumno.HTMLrow())
+            
+        });
+
+        function genTablaTutor(array, id)
+        {
+            let tabla = document.createElement("TABLE");
+            tabla.id = id;
+            tabla.classList.add("table");
+            let thead = tabla.createTHead();
+            let fila = thead.insertRow(-1);
+            array.forEach(titulo => {
+              thead = fila.insertCell(-1);
+              thead.textContent = titulo;
+            });
+            
+            tabla.addEventListener("click", e => {
+                let idTutor;
+                if (e.target.tagName == "BUTTON") {
+                    idTutor = e.target.parentNode.parentNode.cells[0].textContent;
+                
+                }
+            });
+            tabla.appendChild(document.createElement("TBODY"));
+              return tabla;
+            }
+            
+            
+        
+    }
+    
+     
+
+
+
+
+
     formTutor.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
     
     function añadeGrupo(){

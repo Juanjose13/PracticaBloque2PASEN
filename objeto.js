@@ -88,16 +88,23 @@ class Tutor {
         this.grupo = sGrupo;
 
     }
-    toHTMLrow() {
-        let sFila = "<tr>";
-        sFila += "<td>" + this.dni + "</td>";
-        sFila += "<td>" + this.nombre + "</td>";
-        sFila += "<td>" + this.apellido + "</td>";
-        sFila += "<td>" + this.asignatura + "</td>";
-        sFila += "<td>" + this.grupo + "</td>";
-
-        return sFila;
-    }
+    HTMLrow()
+   {
+    let row = document.createElement("TR");
+    let celda = row.insertCell(-1);
+    celda.textContent = this.dni;
+    celda = row.insertCell(-1);
+    celda.textContent = this.nombre;
+    celda = row.insertCell(-1);
+    celda.textContent = this.apellido;
+    celda = row.insertCell(-1);
+    celda.textContent = this.asignatura;
+    celda = row.insertCell(-1);
+    celda.textContent = this.grupo;
+    celda = row.insertCell(-1);
+ 
+    return row;
+  }
 }
 
 class Alumno {

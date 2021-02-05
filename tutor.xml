@@ -1,17 +1,20 @@
 <tutores>
-  <tutor dni="37446083A">
+  <tutor>
+    <dni>37446083A</dni>
     <nombre>Luis</nombre>
     <apellido>Sánchez</apellido>
     <asignatura>Lengua</asignatura>
     <grupo>A</grupo>
   </tutor>
-  <tutor dni="26364758P">
+  <tutor>
+    <dni>26364758P</dni>
     <nombre>Andrés</nombre>
     <apellido>López</apellido>
     <asignatura>Matemáticas</asignatura>
     <grupo>B</grupo>
   </tutor>
-  <tutor dni="50505060F">
+  <tutor>
+    <dni>50505060F</dni>
     <nombre>Carlos</nombre>
     <apellido>Parrales</apellido>
     <asignatura>Inglés</asignatura>
