@@ -380,7 +380,7 @@ document
           
           document.querySelector("#divMostrarListaTutor").appendChild(tabla);
           oPasen._tutor.forEach(oTutor =>{if(oTutor instanceof Tutor)
-            document.querySelector("#estaTablaTutor").tBodies[0].appendChild(oAlumno.HTMLrow())
+            document.querySelector("#estaTablaTutor").tBodies[0].appendChild(oTutor.HTMLrow())
             
         });
 
