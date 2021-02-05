@@ -48,6 +48,61 @@ function validarLogin(){
     }
 }
 
+adXmlAlumno();
+
+//CARGA DE LOS XML
+function loadXMLDoc(filename) 
+{
+  let xhttp = null;
+  if (window.XMLHttpRequest) 
+  {
+    xhttp = new XMLHttpRequest();
+  } else 
+  {
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.open("GET", filename, false);
+  xhttp.send();
+  return xhttp.responseXML;
+}
+
+function adXmlAlumno() {
+    let datos = loadXMLDoc("alumno.xml");
+    console.log(datos);
+    datos.querySelectorAll("alumno").forEach(oAlumno => {
+      let dni = oAlumno.querySelector("dni").textContent;
+      let nombre = oAlumno.querySelector("nombre").textContent;
+      let apellido = oAlumno.querySelector("apellido").textContent;
+      let edad = oAlumno.querySelector("edad").textContent;
+      let grupo = oAlumno.querySelector("grupo").textContent;
+      alert(dni,nombre,apellido);
+      oPasen.altaAlumnos(new Alumno(dni, nombre, apellido, edad, grupo));
+    });
+  }
+
+  //mostrar y ocultar LISTADOS 
+
+function ocultar() 
+{
+    let divHijos = document
+      .querySelector("#contenido")
+      .querySelectorAll(".divHijo");
+    divHijos.forEach(value =>
+         {
+      let x = value;
+      x.style.display = "none";
+    });
+  }
+  
+  function mostrar(x) 
+  {
+    ocultar();
+    document.querySelector(x).style.display = "block";
+  }
+
+
+
+
 
 
 function altaAlumno(){
@@ -154,6 +209,59 @@ function añadeAlumno(){
     
 }
 // formTutor.btnAñadeAlumno.addEventListener("click",añadeTutor,false);
+
+
+//LISTADO ALUMNOS
+
+document
+  .querySelector("#listadoAlumno")
+  .addEventListener("click", listadoAlumnos);
+
+
+  function listadoAlumnos()
+  {
+
+    mostrar("#divMostrarListaAlumnos");
+     let tabla = genTablaAlumnos(
+    ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
+    "estaTablaAlumnos");
+
+
+    document.querySelector("#divMostrarListaAlumnos").appendChild(tabla);
+    oPasen._alumno.forEach(oAlumno =>{if(oAlumno instanceof Alumno)
+        document.querySelector("#estaTablaAlumnos").tBodies[0].appendChild(oAlumno.HTMLrow())
+
+        });
+
+        //miPasteleria.personas.forEach(cliente =>{if(cliente instanceof Cliente)
+
+        function genTablaAlumnos(array, id)
+        {
+            let tabla = document.createElement("TABLE");
+            tabla.id = id;
+            tabla.classList.add("table");
+            let thead = tabla.createTHead();
+            let fila = thead.insertRow(-1);
+            array.forEach(titulo => {
+              thead = fila.insertCell(-1);
+              thead.textContent = titulo;
+            });
+
+            tabla.addEventListener("click", e => {
+                let idAlumno;
+                if (e.target.tagName == "BUTTON") {
+                    idAlumno = e.target.parentNode.parentNode.cells[0].textContent;
+                  //oPasen.delCliente(idAlumno);
+                //  e.target.parentNode.parentNode.remove();
+                }
+              });
+              tabla.appendChild(document.createElement("TBODY"));
+              return tabla;
+            }
+              
+
+
+        }
 
 function añadeTutor()
 {
