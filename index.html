@@ -97,7 +97,7 @@
               Listado
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#" value="alumno" onclick= 'mostrarListadoAlumno()'; >Listado Básico Alumno </a>
+              <a class="dropdown-item" href="#" value="alumno" id="listadoAlumno" >Listado Básico Alumno </a>
               <a class="dropdown-item" href="#" value="grupo"  onclick= 'mostrarListadoGrupo()'; >Listado  Grupo </a>
          </li>
         </ul>
@@ -146,6 +146,11 @@
         </div>
       </form>
       </div>
+      <div id="contenido" >
+        <div id="divMostrarListaAlumnos" class="col-8 m-auto divHijo" style="display: none;"></div>
+      </div>
+  
+
 
       <!--TUTOR-->
       <div id="divFrmAltaTutor" display="none"  class="container col-6 ">

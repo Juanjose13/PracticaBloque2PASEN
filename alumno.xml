@@ -1,20 +1,24 @@
 <alumnos>
- <alumno dni="57342062D">
+ <alumno> 
+    <dni>57342062D</dni>
     <nombre>Pedro</nombre>
     <apellido>Gutiérrez</apellido>
     <edad>15</edad>
     <grupo>B</grupo>
  </alumno> 
- <alumno dni="44506375B">
+ <alumno> 
+    <dni>44506375B</dni>
     <nombre>Pepe</nombre>
     <apellido>Marín</apellido>
     <edad>14</edad>
     <grupo>A</grupo>
  </alumno> 
- <alumno dni="55663344G">
+ <alumno> 
+    <dni>55663344G</dni>
     <nombre>Agustín</nombre>
     <apellido>Pérez</apellido>
     <edad>15</edad>
     <grupo>B</grupo>
  </alumno>  
 </alumnos>
+
