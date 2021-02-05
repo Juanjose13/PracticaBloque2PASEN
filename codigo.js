@@ -36,7 +36,8 @@ function validarLogin(){
             divFrmAltaAlumno.style.display="none";
             divFrmAltaTutor.style.display="none";
             divFrmAltaGrupo.style.display="none";
-            frmInicio.reset();
+            limpiarCampos(frmInicio);
+            
         }else{
             
             frmInicio.txtCorreo.style.color = "red";
@@ -144,11 +145,10 @@ function añadeAlumno(){
     
     
     if (oPasen.altaAlumnos(nuevoAlumno)) {
-        // oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
-        // limpiarCampos();
-        formAlumno.reset();
+        alert("Alumno Añadido!")
+        limpiarCampos(formAlumno);
     } else {
-        // oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
+        alert("DNI Repetido!");
     }
     
     
@@ -227,16 +227,15 @@ function añadeTutor()
       let nuevoTutor = new Tutor(sDni, sNombre, sApellidos, sAsignatura, sGrupo);
 
         if (oPasen.altaTutor(nuevoTutor)) {
-        oMensajes.innerHTML = "<p style='color:green'>" + "Tutor dado de alta" + "</p>";
-        limpiarCampos();
-    } else {
-        oMensajes.innerHTML = "<p style='color:red'>" + "Error, el tutor que intenta introducir ya existe" + "</p>";
+            limpiarCampos(formTutor);
+        } else {
+        alert("Dni ya utilizado!")
     }
-
-    formTutor.reset();
-
-
-
+    
+    
+    
+    
+    
 }
 
 function añadeGrupo(){
@@ -254,13 +253,12 @@ function añadeGrupo(){
     
     
     if (oPasen.altaGrupo(nuevoGrupo)) {
-        oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
-        limpiarCampos();
+        // oMensajes.innerHTML = "<p style='color:green'>" + "Conductor dado de alta" + "</p>";
+        limpiarCampos(formGrupo);
     } else {
-        oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
+        // oMensajes.innerHTML = "<p style='color:red'>" + "Error, el conductor que intenta introducir ya existe" + "</p>";
+        alert("Dni ya utilizado!")
     }
-    
-    formGrupo.reset();
     
 }
 
@@ -274,24 +272,9 @@ function añadeGrupo(){
 
 //     para enviar el mensaje ver si se lo envio al alumno o al tutor (la que esta rellene)
 
-// function genTablaClientes(array, id) {
-//     let tabla = document.createElement("TABLE");
-//     tabla.id = id;
-//     tabla.classList.add("table");
-//     let thead = tabla.createTHead();
-//     let fila = thead.insertRow(-1);
-//     array.forEach(titulo => {
-//       th = fila.insertCell(-1);
-//       th.textContent = titulo;
-//     });
-//     tabla.addEventListener("click", e => {
-//       let idCliente;
-//       if (e.target.tagName == "BUTTON") {
-//         idCliente = e.target.parentNode.parentNode.cells[0].textContent;
-//         miPasteleria.delCliente(idCliente);
-//         e.target.parentNode.parentNode.remove();
-//       }
-//     });
-//     tabla.appendChild(document.createElement("TBODY"));
-//     return tabla;
-//   }
+
+
+function limpiarCampos(form){
+    console.log(form);
+    form.reset();
+}
