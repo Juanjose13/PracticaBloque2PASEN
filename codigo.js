@@ -89,7 +89,7 @@ function adXmlAlumno() {
          let nombre = oTutor.querySelector("nombre").textContent;
          let apellido = oTutor.querySelector("apellido").textContent;
          let asignatura = oTutor.querySelector("asignatura").textContent;
-         let grupo = oAlumno.querySelector("grupo").textContent;
+         let grupo = oTutor.querySelector("grupo").textContent;
 
          oPasen.altaTutor(new Tutor(dni, nombre, apellido, asignatura, grupo));
 
