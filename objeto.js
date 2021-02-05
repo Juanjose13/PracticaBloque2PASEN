@@ -59,8 +59,9 @@ class Pasen {
 
 }
 class Grupo {
-    constructor(sIdGrupo, sNAlumnos, sAula, sCentro) {
+    constructor(sIdGrupo,sGrupo, sNAlumnos, sAula, sCentro) {
         this.idGrupo = sIdGrupo;
+        this.grupo = sGrupo;
         this.nAlumnos = sNAlumnos;
         this.aula = sAula;
         this.centro = sCentro;
@@ -68,6 +69,7 @@ class Grupo {
     toHTMLrow() {
         let sFila = "<tr>";
         sFila += "<td>" + this.idGrupo + "</td>";
+        sFila += "<td>" + this.grupo + "</td>";
         sFila += "<td>" + this.nAlumnos + "</td>";
         sFila += "<td>" + this.aula + "</td>";
         sFila += "<td>" + this.centro + "</td>";

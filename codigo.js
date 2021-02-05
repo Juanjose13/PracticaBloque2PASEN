@@ -120,7 +120,7 @@ function añadeAlumno(){
     }
     // VALIDAR SOLO NÚMEROS
     let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
-    let oVerificaEdad = /^\d{2}$/;
+    let oVerificaEdad = /^\d{1,2}$/;
     if(!oVerificaEdad.test(sEdad)){
         alert("Edad Errónea");
         document.getElementById("txtEdad").focus();
@@ -244,12 +244,52 @@ function añadeGrupo(){
     
     //VALIDAR FORMULARIOS -> ID 1122 {4 nºs}
     let sId = oFormularioGrupo.txtId.value.trim();
+    let oVerificaId = /^\d{4}$/;
+    if(!oVerificaId.test(sId)){
+        alert("ID Erróneo");
+        document.getElementById("txtId").style.color= "red";
+        document.getElementById("txtId").focus();
+        return false;
+    }else{
+        document.getElementById("txtId").style.color= "black";
+        
+    }
+    let sGrupo = oFormularioGrupo.txtNombre.value.trim();
+    let oVerificaGrupo = /([A-Z]\1)?$/;
+    // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
+    if(!oVerificaGrupo.test(sGrupo)){
+        alert("Seleccione el grupo");
+        document.getElementById("txtGrupo").focus();
+        document.getElementById("txtGrupo").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("txtGrupo").style.color= "black";
+    }
+
     let inumAlumnos = parseInt(oFormularioGrupo.numAlumnos.value.trim());
+    let oVerificanAlumno = /^\d{1,2}$/;
+    if(!oVerificanAlumno.test(inumAlumnos) || inumAlumnos == null){
+        alert("Ningún ha metido ningún número de alumnos");
+        document.getElementById("numAlumnos").focus();
+        document.getElementById("numAlumnos").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("numAlumnos").style.color= "black";
+    }
+    
     let sAula = oFormularioGrupo.txtAula.value.trim();
+    if(sAsignatura.length=="" || /^([A-Z]\d{3})/.test(sAsignatura)){
+        alert("Aula Errónea");
+        document.getElementById("txtAula").focus();
+        document.getElementById("txtAula").style.color= "red";
+        return false;
+    }else{
+        document.getElementById("txtAula").style.color= "black";
+    }
     let sCentro = oFormularioGrupo.txtCentro.value.trim();
     
     
-    let nuevoGrupo = new Grupo(sId, inumAlumnos, sAula, sCentro);
+    let nuevoGrupo = new Grupo(sId, sGrupo, inumAlumnos, sAula, sCentro);
     
     
     if (oPasen.altaGrupo(nuevoGrupo)) {
