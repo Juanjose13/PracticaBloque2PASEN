@@ -208,33 +208,32 @@ function añadeAlumno(){
     
     
 }
-formTutor.btnAñadeTutor.addEventListener("click",añadeTutor,false);
 
 
 //LISTADO ALUMNOS
 
 document
-  .querySelector("#listadoAlumno")
+.querySelector("#listadoAlumno")
   .addEventListener("click", listadoAlumnos);
-
-
+  
+  
   function listadoAlumnos()
   {
-
-    mostrar("#divMostrarListaAlumnos");
-     let tabla = genTablaAlumnos(
-    ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
-    "estaTablaAlumnos");
-
-
-    document.querySelector("#divMostrarListaAlumnos").appendChild(tabla);
-    oPasen._alumno.forEach(oAlumno =>{if(oAlumno instanceof Alumno)
-        document.querySelector("#estaTablaAlumnos").tBodies[0].appendChild(oAlumno.HTMLrow())
-
+      
+      mostrar("#divMostrarListaAlumnos");
+      let tabla = genTablaAlumnos(
+          ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
+          "estaTablaAlumnos");
+          
+          
+          document.querySelector("#divMostrarListaAlumnos").appendChild(tabla);
+          oPasen._alumno.forEach(oAlumno =>{if(oAlumno instanceof Alumno)
+            document.querySelector("#estaTablaAlumnos").tBodies[0].appendChild(oAlumno.HTMLrow())
+            
         });
-
+        
         //miPasteleria.personas.forEach(cliente =>{if(cliente instanceof Cliente)
-
+        
         function genTablaAlumnos(array, id)
         {
             let tabla = document.createElement("TABLE");
@@ -246,31 +245,32 @@ document
               thead = fila.insertCell(-1);
               thead.textContent = titulo;
             });
-
+            
             tabla.addEventListener("click", e => {
                 let idAlumno;
                 if (e.target.tagName == "BUTTON") {
                     idAlumno = e.target.parentNode.parentNode.cells[0].textContent;
                   //oPasen.delCliente(idAlumno);
-                //  e.target.parentNode.parentNode.remove();
+                  //  e.target.parentNode.parentNode.remove();
                 }
-              });
-              tabla.appendChild(document.createElement("TBODY"));
+            });
+            tabla.appendChild(document.createElement("TBODY"));
               return tabla;
             }
-              
-
+            
+            
 
         }
-
-function añadeTutor()
-{
-    
-    let oFormularioTutor=document.getElementById("formTutor");
-    // let oMensajes = document.getElementById("mensajesConductores");
-    
-    
-    let sDni = oFormularioTutor.txtDni.value.trim();
+        
+        formTutor.btnAñadeTutor.addEventListener("click",añadeTutor,false);
+        function añadeTutor()
+        {
+            
+            let oFormularioTutor=document.getElementById("formTutor");
+            // let oMensajes = document.getElementById("mensajesConductores");
+            
+            
+            let sDni = oFormularioTutor.txtDni.value.trim();
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
         alert("Dni Erróneo");
