@@ -153,15 +153,15 @@ function añadeAlumno(){
     
     
 }
-// formTutor.btnAñadeAlumno.addEventListener("click",añadeTutor,false);
+formTutor.btnAñadeTutor.addEventListener("click",añadeTutor,false);
 
 function añadeTutor()
 {
     
     let oFormularioTutor=document.getElementById("formTutor");
     // let oMensajes = document.getElementById("mensajesConductores");
-
-
+    
+    
     let sDni = oFormularioTutor.txtDni.value.trim();
     let oVerificaDni = /^\d{8}[A-Z]$/;
     if(!oVerificaDni.test(sDni)){
@@ -187,7 +187,7 @@ function añadeTutor()
     }else{
         document.getElementById("txtNombre").style.color= "black";
     }
-
+    
     let sApellidos = oFormularioTutor.txtApellido.value.trim();
     if(sApellidos.length == 0 || /^\s+$/.test(sApellidos)){
         alert("Campo vacío, rellénelo");
@@ -198,8 +198,8 @@ function añadeTutor()
     }else{
         document.getElementById("txtApellido").style.color= "black";
     }
-
-
+    
+    
 
     let sAsignatura = oFormularioTutor.txtAsignatura.value.trim();
     if(sAsignatura.length=="" || /^\s+$/.test(sAsignatura)){
@@ -210,8 +210,8 @@ function añadeTutor()
     }else{
         document.getElementById("txtAsignatura").style.color= "black";
     }
-
-
+    
+    
     let sGrupo = oFormularioTutor.txtGrupo.value.trim();
     let oVerificaGrupo = /([A-Z]\1)?$/;
     // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
@@ -223,22 +223,23 @@ function añadeTutor()
     }else{
         document.getElementById("txtGrupo").style.color= "black";
     }
-
-      let nuevoTutor = new Tutor(sDni, sNombre, sApellidos, sAsignatura, sGrupo);
-
+    
+    let nuevoTutor = new Tutor(sDni, sNombre, sApellidos, sAsignatura, sGrupo);
+    
         if (oPasen.altaTutor(nuevoTutor)) {
             limpiarCampos(formTutor);
         } else {
-        alert("Dni ya utilizado!")
+            alert("Dni ya utilizado!")
+        }
+    
+        
+    
+        
+    
     }
+    formTutor.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
     
-    
-    
-    
-    
-}
-
-function añadeGrupo(){
+    function añadeGrupo(){
     let oFormularioGrupo = document.getElementById("formGrupo");
     // let oMensajes = document.getElementById("mensajesConductores");
     
