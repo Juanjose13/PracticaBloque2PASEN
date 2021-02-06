@@ -8,12 +8,13 @@ frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 formAlumno.btnAñadeAlumno.addEventListener("click", añadeAlumno, false);
 formTutor.btnAñadeTutor.addEventListener("click", añadeTutor, false);
 formGrupo.btnAñadeGrupo.addEventListener("click", añadeGrupo, false);
-frMensaje.btnMensaje.addEventListener("click", mandarMensaje, false);
+formMensaje.btnMensaje.addEventListener("click", mandarMensaje, false);
 
 navegador.style.display = "none";
 divFrmAltaAlumno.style.display = "none";
 divFrmAltaTutor.style.display = "none";
 divFrmAltaGrupo.style.display = "none";
+divFrmAltaMensaje.style.display = "none";
 
 function validarLogin() {
     let oValidarUsuario = frmInicio.txtCorreo.value.trim();
@@ -42,6 +43,7 @@ function validarLogin() {
             divFrmAltaAlumno.style.display = "none";
             divFrmAltaTutor.style.display = "none";
             divFrmAltaGrupo.style.display = "none";
+            divFrmAltaMensaje.style.display = "none";
             limpiarCampos(frmInicio);
 
         } else {
@@ -138,6 +140,7 @@ function mostrar(x) {
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaTutor.style.display = "none";
     divFrmAltaGrupo.style.display = "none";
+    divFrmAltaMensaje.style.display = "none";
     //creación de tabla
     let tabla = document.createElement("table");
     tabla.classList.add("table");
@@ -156,9 +159,11 @@ function altaAlumno() {
     divFrmAltaAlumno.style.display = "block";
     divFrmAltaTutor.style.display = "none";
     divFrmAltaGrupo.style.display = "none";
+    divFrmAltaMensaje.style.display = "none";
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
+    divMostrarListaMensaje.style.display = "none";
 
 }
 
@@ -167,9 +172,11 @@ function altaTutor() {
     divFrmAltaTutor.style.display = "block";
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaGrupo.style.display = "none";
+    divFrmAltaMensaje.style.display = "none";
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
+    divMostrarListaMensaje.style.display = "none";
 }
 
 function altaGrupo() {
@@ -177,9 +184,23 @@ function altaGrupo() {
     divFrmAltaGrupo.style.display = "block";
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaTutor.style.display = "none";
+    divFrmAltaMensaje.style.display = "none";
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
+    divMostrarListaMensaje.style.display = "none";
+}
+
+function altaMensaje() {
+
+    divFrmAltaMensaje.style.display = "block";
+    divFrmAltaGrupo.style.display = "none";
+    divFrmAltaAlumno.style.display = "none";
+    divFrmAltaTutor.style.display = "none";
+    divMostrarListaAlumnos.style.display = "none";
+    divMostrarListaTutor.style.display = "none";
+    divMostrarListaGrupo.style.display = "none";
+   divMostrarListaMensaje.style.display = "none";
 }
 
 function mandarMensaje() {

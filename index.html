@@ -134,7 +134,7 @@
                     <a class="nav-link" onclick=altaGrupo();> Grupo</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" data-toggle="modal" data-target="#modalCart"> Redactar Mensaje</a>
+                    <a class="nav-link" onclick=altaMensaje();> Redactar Mensaje</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,6 +144,7 @@
                         <a class="dropdown-item" href="#" value="alumno" id="listadoAlumno">Listado Básico Alumno </a>
                         <a class="dropdown-item" href="#" value="alumno" id="listadoTutor">Listado Básico Tutor </a>
                         <a class="dropdown-item" href="#" value="grupo" id="listadoGrupo">Listado  Grupo </a>
+                        <a class="dropdown-item" href="#" value="grupo" id="listadoMensaje">Mensajes </a>
                 </li>
             </ul>
             </div>
@@ -299,68 +300,52 @@
     </div>
 
     <!--MENSAJE-->
-    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button>-->
-    <div id="divFrmMensaje" display="none" class="container col-6 ">
-        <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <!--Header-->
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                            </button>
-                    </div>
-                    <!--Body-->
-                    <div class="modal-body">
-                        <form id="frMensaje">
-                            <div class="form-group row">
-                                <label class="col-4 col-form-label" for="enviar">Remitente</label>
-                                <div class="col-8">
-                                    <select id="enviar" name="enviar" class="custom-select" required="required">
-                                  <option value="rabbit">Rabbit</option>
-                                  <option value="duck">Duck</option>
-                                  <option value="fish">Fish</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="select" class="col-4 col-form-label">Destinatario</label>
-                                <div class="col-8">
-                                    <select id="select" name="select" class="custom-select">
-                                  <option value="rabbit">Rabbit</option>
-                                  <option value="duck">Duck</option>
-                                  <option value="fish">Fish</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="text" class="col-4 col-form-label">Titulo</label>
-                                <div class="col-8">
-                                    <input id="text" name="text" type="text" class="form-control" required="required">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="textarea" class="col-4 col-form-label">Asunto</label>
-                                <div class="col-8">
-                                    <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control" required="required"></textarea>
-
-                                </div>
-                            </div>
-                        </form>
-
-
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer">
-                        <button id="btnMensaje" type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-                        <button class="btn btn-outline-success">Enviar</button>
-                    </div>
+    <div id="divFrmAltaMensaje" display="none" class="container col-6 ">
+        <h1>Mensaje</h1>
+        <form action="" name="formMensaje" class="m-2" id="formMensaje">
+            <div class="form-group row">
+                <label for="txtId" class="col-4 col-form-label">ID Grupo:</label>
+                <div class="col-8">
+                    <input id="txtId" name="txtId" type="text" class="form-control">
                 </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label>
+                <div class="col-8">
+                    <input id="txtGrupo" name="txtGrupo" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="numAlumnos" class="col-4 col-form-label">Nº alumnos:</label>
+                <div class="col-8">
+                    <input id="numAlumnos" name="numAlumnos" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="txtAula" class="col-4 col-form-label">Aula:</label>
+                <div class="col-8">
+                    <input id="txtAula" name="txtAula" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="txtCentro" class="col-4 col-form-label">Centro:</label>
+                <div class="col-8">
+                    <input id="txtCentro" name="txtCentro" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-4 col-8">
+                    <button name="btnMensaje" type="button" class="btn btn-primary">Añadir</button>
+                </div>
+            </div>
+        </form>
     </div>
+    <div id="contenido">
+        <div id="divMostrarListaMensaje" class="col-8 m-auto divHijo" style="display: none;">
 
+        </div>
+
+    </div>
 
     <script src="objeto.js"></script>
     <script src="codigo.js"></script>
