@@ -117,14 +117,15 @@ function ocultar()
         let $posibleTabla = document.querySelector(".table");
         if ($posibleTabla != null) {
             $posibleTabla.remove();
-        }else{
-
             
-            //creación de tabla
-            let $tabla = document.createElement("table");
-            $tabla.classList.add("table");
-            document.querySelector(x).style.display = "block";
+        
         }
+        
+        //creación de tabla
+        let $tabla = document.createElement("table");
+        $tabla.classList.add("table");
+        document.querySelector(x).style.display = "block";
+        
   }
 
 
