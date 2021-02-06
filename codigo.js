@@ -189,7 +189,7 @@ function altaGrupo(){
     divMostrarListaGrupo.style.display="none";
 }
 
-
+///////////////////////////////////// FUNCIONES RELACIONADAS CON ALUMNOS ///////////////////////////////
 
 function añadeAlumno(){
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
@@ -280,6 +280,8 @@ document
       
       mostrar("#divMostrarListaAlumnos");
       divMostrarListaTutor.style.display="none";
+      divMostrarListaGrupo.style.display="none";
+
       let tabla = genTablaAlumnos(
           ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
           "tabla");
@@ -290,8 +292,6 @@ document
             document.querySelector("#tabla").tBodies[0].appendChild(oAlumno.HTMLrow())
             
         });
-        
-        //miPasteleria.personas.forEach(cliente =>{if(cliente instanceof Cliente)
         
         function genTablaAlumnos(array, id)
         {
@@ -416,6 +416,7 @@ document
       
       mostrar("#divMostrarListaTutor");
       divMostrarListaAlumnos.style.display="none";
+      divMostrarListaGrupo.style.display="none";
       let tabla = genTablaTutor(
           ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO",],
           "tabla");
@@ -454,6 +455,7 @@ document
         
     }
     
+    /////////////////////////////////////////////// FUNCIONES RELACIONADAS CON GRUPO ///////////////////////////////S
     
     function añadeGrupo(){
     let oFormularioGrupo = document.getElementById("formGrupo");
@@ -531,6 +533,8 @@ document
   {
       
       mostrar("#divMostrarListaGrupo");
+      divMostrarListaTutor.style.display="none";
+      divMostrarListaAlumnos.style.display="none";
       let tabla = genTablaGrupo(
           ["ID", "GRUPO", "NºALUMNOS", "AULA", "CENTRO",],
           "tabla");
@@ -571,7 +575,7 @@ document
 
     //BUSCAR EN LAS TABLAS
     
-    function buscaNombre() {
+    function buscaNombreAlumno() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("buscar");
         filter = input.value.toUpperCase();
@@ -589,6 +593,7 @@ document
           }       
         }
       } 
+   
 //     
 // MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 
 // creo un formulario para enviar oMensajes desde el administrador hacia (tutor o alumno)
