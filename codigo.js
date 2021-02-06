@@ -153,9 +153,8 @@ function mostrar(x) {
 
 
 
-
 function altaAlumno() {
-
+    
     divFrmAltaAlumno.style.display = "block";
     divFrmAltaTutor.style.display = "none";
     divFrmAltaGrupo.style.display = "none";
@@ -164,11 +163,11 @@ function altaAlumno() {
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
     divMostrarListaMensaje.style.display = "none";
-
+    
 }
 
 function altaTutor() {
-
+    
     divFrmAltaTutor.style.display = "block";
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaGrupo.style.display = "none";
@@ -180,7 +179,7 @@ function altaTutor() {
 }
 
 function altaGrupo() {
-
+    
     divFrmAltaGrupo.style.display = "block";
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaTutor.style.display = "none";
@@ -200,20 +199,53 @@ function altaMensaje() {
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
-   divMostrarListaMensaje.style.display = "none";
+    divMostrarListaMensaje.style.display = "none";
+    cargarOption();
 }
 
-function mandarMensaje() {
+/////////////////////// Funciones relacionadas con MENSAJES /////////////////////////
 
 
-}
+//Para rellenar Clase mensaje
+function mandarMensaje(){
+        
+        // let oMensaje = new Mensaje()
+        // cargarOption();
+    }
+
+   
+   // funcion para Cargar Option al campo <select>
+   function cargarOption() {
+   
+    // sacar los array de alumno y tutor
+    
+    addOptions("selectPrimero", oPasen.mandarMensaje());
+    addOptions("selectSegundo", oPasen.mandarMensaje());
+   }
+   
+   // Rutina para agregar opciones a un <select>
+
+   function addOptions(domElement, array) {
+    var select = document.getElementsByName(domElement)[0];
+    array.forEach(element => {
+        
+        var option = document.createElement("option");
+        option.value = element.dni;
+        option.text = element.nombre;
+        select.add(option);
+    }); 
+       
+}    
+
+    
+    
+
 
 ///////////////////////////////////// FUNCIONES RELACIONADAS CON ALUMNOS ///////////////////////////////
 
 function añadeAlumno() {
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
-    // let oMensajes = document.getElementById("mensajesConductores");
-
+    
     //VALIDAR FORMULARIOS -> DNI 11222333A {9 nºs y letra en mayúscula}
     let sDni = oFormularioAltaAlumno.txtDni.value.trim();
     let oVerificaDni = /^\d{8}[A-Z]$/;

@@ -41,9 +41,26 @@ class Pasen {
         return bResultado;
 
     }
+    mandarMensaje(oMensaje){
 
-    mandarMensaje(oMensaje) {
+    }
 
+    CargarOptions() {
+        let oMixta = [];
+        this._alumno.forEach(element => {
+            if(oMixta !== element.dni){
+
+                oMixta.push({dni: element.dni, nombre:element.nombre});
+            }
+        });
+        this._tutor.forEach(elemento => {
+            if(oMixta !== elemento.dni){
+
+                oMixta.push({dni: elemento.dni, nombre:elemento.nombre});
+            }
+        });
+        return oMixta;
+        
     }
 
 
