@@ -573,19 +573,36 @@ document
     // var busqueda = document.getElementById('buscar');
     // var table = document.getElementById("tabla").getElementsByTagName("tbody")[0];
     
-    buscaTabla = function(){
-      texto = busqueda.value.toLowerCase();
-      var r=0;
-      while(row = table.rows[r++])
-      {
-          if ( row.innerText.toLowerCase().indexOf(texto) !== -1 )
-          row.style.display = null;
-          else
-          row.style.display = 'none';
-        }
-    }
-    busqueda.addEventListener('keyup', buscaTabla);
-
+    // buscaTabla = function(){
+    //   texto = busqueda.value.toLowerCase();
+    //   var r=0;
+    //   while(row = table.rows[r++])
+    //   {
+    //       if ( row.innerText.toLowerCase().indexOf(texto) !== -1 )
+    //       row.style.display = null;
+    //       else
+    //       row.style.display = 'none';
+    //     }
+    // }
+    // busqueda.addEventListener('keyup', buscaTabla);
+    // 
+    document.getElementById("buscar").onkeyup = function() {
+        var buscar_= this.value.toLowerCase() ;
+        document.querySelectorAll('.table tbody tr').forEach(function(e){
+          var encontro_ =false;
+          e.querySelectorAll('td').forEach(function(e){
+            if (e.innerHTML.toLowerCase().indexOf(buscar_)>=0){
+              encontro_=true;
+            }
+          }); 
+          if (encontro_){
+            e.style.display = '';
+          }else{
+            e.style.display = 'none';
+          }
+        });              
+  }
+        // Declare variables 
 
 // MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 
 // creo un formulario para enviar oMensajes desde el administrador hacia (tutor o alumno)
