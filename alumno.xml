@@ -20,5 +20,54 @@
     <edad>15</edad>
     <grupo>B</grupo>
  </alumno>  
+  <alumno> 
+    <dni>47342062D</dni>
+    <nombre>Paco</nombre>
+    <apellido>Suarez</apellido>
+    <edad>14</edad>
+    <grupo>A</grupo>
+ </alumno> 
+  <alumno> 
+    <dni>23345062T</dni>
+    <nombre>Ángelica</nombre>
+    <apellido>Arias</apellido>
+    <edad>17</edad>
+    <grupo>C</grupo>
+ </alumno> 
+  <alumno> 
+    <dni>77342062L</dni>
+    <nombre>Armando</nombre>
+    <apellido>Bronca</apellido>
+    <edad>18</edad>
+    <grupo>C</grupo>
+ </alumno> 
+  <alumno> 
+    <dni>66776677H</dni>
+    <nombre>Juanito</nombre>
+    <apellido>Ernesto</apellido>
+    <edad>17</edad>
+    <grupo>B</grupo>
+ </alumno> 
+  <alumno> 
+    <dni>44332233N</dni>
+    <nombre>Dolores</nombre>
+    <apellido>Profundos</apellido>
+    <edad>10</edad>
+    <grupo>C</grupo>
+ </alumno> 
+  <alumno> 
+    <dni>99887766S</dni>
+    <nombre>Angustias</nombre>
+    <apellido>Severas</apellido>
+    <edad>22</edad>
+    <grupo>B</grupo>
+ </alumno>  
+ <alumno> 
+    <dni>77669900P</dni>
+    <nombre>Tulipa</nombre>
+    <apellido>Aguza</apellido>
+    <edad>20</edad>
+    <grupo>C</grupo>
+ </alumno> 
 </alumnos>
 
