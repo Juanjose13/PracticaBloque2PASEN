@@ -14,6 +14,13 @@
     <grupo>B</grupo>
   </tutor>
   <tutor>
+    <dni>47336140Y</dni>
+    <nombre>Inés María</nombre>
+    <apellido>Ramos Ferrera</apellido>
+    <asignatura>Lengua Castellana y Literatura</asignatura>
+    <grupo>Y</grupo>
+  </tutor>
+  <tutor>
     <dni>50505060F</dni>
     <nombre>Carlos</nombre>
     <apellido>Parrales</apellido>
