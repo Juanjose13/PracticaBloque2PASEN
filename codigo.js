@@ -85,7 +85,7 @@ function adXmlAlumno() {
   {
      let datos = loadXMLDoc("tutor.xml");
      datos.querySelectorAll("tutor").forEach(oTutor =>{
-         let dni = oTutor.querySelectorAll("dni").textContent;
+         let dni = oTutor.querySelector("dni").textContent;
          let nombre = oTutor.querySelector("nombre").textContent;
          let apellido = oTutor.querySelector("apellido").textContent;
          let asignatura = oTutor.querySelector("asignatura").textContent;
