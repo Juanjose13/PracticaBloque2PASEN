@@ -4,6 +4,11 @@ var oPasen = new Pasen();
 
 frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 
+//Añadir datos de los formularios
+formAlumno.btnAñadeAlumno.addEventListener("click",añadeAlumno,false);
+formTutor.btnAñadeTutor.addEventListener("click",añadeTutor,false);
+formGrupo.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
+
 navegador.style.display="none";
 divFrmAltaAlumno.style.display="none";
 divFrmAltaTutor.style.display="none";
@@ -117,10 +122,12 @@ function ocultar()
         let $posibleTabla = document.querySelector(".table");
         if ($posibleTabla != null) {
             $posibleTabla.remove();
-            
-        
+                   
         }
-        
+        // Ocultamos posibles formularios que puedan salir
+        divFrmAltaAlumno.style.display="none";
+        divFrmAltaTutor.style.display="none";
+        divFrmAltaGrupo.style.display="none";
         //creación de tabla
         let $tabla = document.createElement("table");
         $tabla.classList.add("table");
@@ -138,6 +145,9 @@ function altaAlumno(){
     divFrmAltaAlumno.style.display="block";
     divFrmAltaTutor.style.display="none";
     divFrmAltaGrupo.style.display="none";
+    divMostrarListaAlumnos.style.display="none";
+    divMostrarListaTutor.style.display="none";
+    divMostrarListaGrupo.style.display="none";
     
 }
 
@@ -146,6 +156,9 @@ function altaTutor(){
     divFrmAltaTutor.style.display="block";
     divFrmAltaAlumno.style.display="none";
     divFrmAltaGrupo.style.display="none";
+    divMostrarListaAlumnos.style.display="none";
+    divMostrarListaTutor.style.display="none";
+    divMostrarListaGrupo.style.display="none";
 }
 
 function altaGrupo(){
@@ -153,13 +166,12 @@ function altaGrupo(){
     divFrmAltaGrupo.style.display="block";
     divFrmAltaAlumno.style.display="none";
     divFrmAltaTutor.style.display="none";
+    divMostrarListaAlumnos.style.display="none";
+    divMostrarListaTutor.style.display="none";
+    divMostrarListaGrupo.style.display="none";
 }
 
-// function validar(){
 
-// }
-
-formAlumno.btnAñadeAlumno.addEventListener("click",añadeAlumno,false);
 
 function añadeAlumno(){
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
@@ -290,7 +302,6 @@ document
 
         }
         
-        formTutor.btnAñadeTutor.addEventListener("click",añadeTutor,false);
         function añadeTutor()
         {
             
@@ -423,13 +434,6 @@ document
         
     }
     
-     
-
-
-
-
-
-    formGrupo.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
     
     function añadeGrupo(){
     let oFormularioGrupo = document.getElementById("formGrupo");
