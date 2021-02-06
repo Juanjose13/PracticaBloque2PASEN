@@ -208,9 +208,25 @@ function altaMensaje() {
 
 //Para rellenar Clase mensaje
 function mandarMensaje(){
-        
-        // let oMensaje = new Mensaje()
-        // cargarOption();
+        let oFormularioMensaje = document.getElementById("formMensaje");
+
+        // Texto del primero select seleccionado
+        let sPrimero = document.getElementById("selectPrimero");
+        let optionPrimero = sPrimero.options[sPrimero.selectedIndex].text;
+        // Texto del segundo select seleccionado
+        let sSegundo = oFormularioMensaje.selectSegundo;
+        let optionSegundo = sSegundo.options[sSegundo.selectedIndex].text;
+        // Titulo
+        let sTitulo = oFormularioMensaje.txtTitulo.value.trim();
+        let sMensaje = oFormularioMensaje.txtMensaje.value.trim();
+
+
+        let nuevoMensaje = new Mensaje(optionPrimero,optionSegundo,sTitulo,sMensaje);
+
+        if(oPasen.mandarMensaje(nuevoMensaje)){
+            alert("Mensaje Enviado!")
+        limpiarCampos(formMensaje);
+        }
     }
 
    
@@ -235,8 +251,54 @@ function mandarMensaje(){
         select.add(option);
     }); 
        
-}    
+} 
 
+document
+    .querySelector("#listadoMensaje")
+    .addEventListener("click", listadoMensajes);
+
+
+function listadoMensajes() {
+
+    mostrar("#divMostrarListaMensaje");
+    divMostrarListaAlumnos.style.display = "none";
+    divMostrarListaTutor.style.display = "none";
+    divMostrarListaGrupo.style.display = "none";
+
+    let tabla = genTablaMensaje(
+        ["Remitente", "Emisor", "Titulo", "Mensaje"],
+        "tabla");
+
+
+    document.querySelector("#divMostrarListaMensaje").appendChild(tabla);
+    oPasen._mensaje.forEach(oMensaje => {
+        if (oMensaje instanceof Mensaje)
+            document.querySelector("#tabla").tBodies[0].appendChild(oMensaje.HTMLrow())
+
+    });
+    function genTablaMensaje(array, id) {
+        let tabla = document.createElement("TABLE");
+        tabla.id = id;
+        tabla.classList.add("table");
+        let thead = tabla.createTHead();
+        let fila = thead.insertRow(-1);
+        array.forEach(titulo => {
+            thead = fila.insertCell(-1);
+            thead.textContent = titulo;
+        });
+
+        tabla.addEventListener("click", e => {
+            let idMensaje;
+            if (e.target.tagName == "BUTTON") {
+                idMensaje = e.target.parentNode.parentNode.cells[0].textContent;
+            }
+        });
+        tabla.appendChild(document.createElement("TBODY"));
+        return tabla;
+    }
+
+
+}
     
     
 

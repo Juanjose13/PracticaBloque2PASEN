@@ -42,6 +42,12 @@ class Pasen {
 
     }
     mandarMensaje(oMensaje){
+        let bResultado = true;
+
+       
+            this._mensaje.push(oMensaje);
+        
+        return bResultado;
 
     }
 
@@ -140,14 +146,28 @@ class Alumno {
         celda.textContent = this.edad;
         celda = row.insertCell(-1);
         celda.textContent = this.grupo;
-        
-
         return row;
     }
 }
 
 class Mensaje {
-    constructor(sMensaje) {
+    constructor(sIdPrimero,sIdSegundo,sTitulo,sMensaje){
+        this.idprimero = sIdPrimero;
+        this.idsegundo = sIdSegundo;
+        this.titulo = sTitulo;
         this.mensaje = sMensaje;
+    }
+    HTMLrow(){
+        let row = document.createElement("TR");
+        let celda = row.insertCell(-1);
+        celda.textContent = this.idprimero;
+        celda = row.insertCell(-1);
+        celda.textContent = this.idsegundo;
+        celda = row.insertCell(-1);
+        celda.textContent = this.titulo;
+        celda = row.insertCell(-1);
+        celda.textContent = this.mensaje;
+
+        return row;
     }
 }
