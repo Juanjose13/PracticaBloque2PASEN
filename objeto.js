@@ -41,9 +41,9 @@ class Pasen {
         return bResultado;
 
     }
-    onInit(){
+    onInit() {
         let tabla = document.getElementsByClassName("table");
-        while(tabla.rows.length > 0){
+        while (tabla.rows.length > 0) {
             tabla.deleteRow(0);
         }
         this._alumno.forEach(persona => {
@@ -52,7 +52,7 @@ class Pasen {
         });
 
     }
-    buscar(dni){
+    buscar(dni) {
         let busqueda = document.getElementById(dni).value;
         this._alumno = this.oAlumno;
         this._alumno = this._alumno.filter(persona => {
@@ -61,7 +61,7 @@ class Pasen {
         this.onInit();
 
     }
-    enviarMensaje(oMensaje) {
+    mandarMensaje(oMensaje) {
 
     }
 
@@ -78,30 +78,29 @@ class Pasen {
 
 }
 class Grupo {
-    constructor(sIdGrupo,sGrupo, sNAlumnos, sAula, sCentro) {
+    constructor(sIdGrupo, sGrupo, sNAlumnos, sAula, sCentro) {
         this.idGrupo = sIdGrupo;
         this.grupo = sGrupo;
         this.nAlumnos = sNAlumnos;
         this.aula = sAula;
         this.centro = sCentro;
     }
-    HTMLrow()
-    {
-     let row = document.createElement("TR");
-     let celda = row.insertCell(-1);
-     celda.textContent = this.idGrupo;
-     celda = row.insertCell(-1);
-     celda.textContent = this.grupo;
-     celda = row.insertCell(-1);
-     celda.textContent = this.nAlumnos;
-     celda = row.insertCell(-1);
-     celda.textContent = this.aula;
-     celda = row.insertCell(-1);
-     celda.textContent = this.centro;
-     celda = row.insertCell(-1);
-  
-     return row;
-   }
+    HTMLrow() {
+        let row = document.createElement("TR");
+        let celda = row.insertCell(-1);
+        celda.textContent = this.idGrupo;
+        celda = row.insertCell(-1);
+        celda.textContent = this.grupo;
+        celda = row.insertCell(-1);
+        celda.textContent = this.nAlumnos;
+        celda = row.insertCell(-1);
+        celda.textContent = this.aula;
+        celda = row.insertCell(-1);
+        celda.textContent = this.centro;
+        celda = row.insertCell(-1);
+
+        return row;
+    }
 }
 
 class Tutor {
@@ -113,23 +112,22 @@ class Tutor {
         this.grupo = sGrupo;
 
     }
-    HTMLrow()
-   {
-    let row = document.createElement("TR");
-    let celda = row.insertCell(-1);
-    celda.textContent = this.dni;
-    celda = row.insertCell(-1);
-    celda.textContent = this.nombre;
-    celda = row.insertCell(-1);
-    celda.textContent = this.apellido;
-    celda = row.insertCell(-1);
-    celda.textContent = this.asignatura;
-    celda = row.insertCell(-1);
-    celda.textContent = this.grupo;
-    celda = row.insertCell(-1);
- 
-    return row;
-  }
+    HTMLrow() {
+        let row = document.createElement("TR");
+        let celda = row.insertCell(-1);
+        celda.textContent = this.dni;
+        celda = row.insertCell(-1);
+        celda.textContent = this.nombre;
+        celda = row.insertCell(-1);
+        celda.textContent = this.apellido;
+        celda = row.insertCell(-1);
+        celda.textContent = this.asignatura;
+        celda = row.insertCell(-1);
+        celda.textContent = this.grupo;
+        celda = row.insertCell(-1);
+
+        return row;
+    }
 }
 
 class Alumno {
@@ -140,23 +138,22 @@ class Alumno {
         this.edad = sEdad;
         this.grupo = sGrupo;
     }
-    HTMLrow()
-   {
-    let row = document.createElement("TR");
-    let celda = row.insertCell(-1);
-    celda.textContent = this.dni;
-    celda = row.insertCell(-1);
-    celda.textContent = this.nombre;
-    celda = row.insertCell(-1);
-    celda.textContent = this.apellido;
-    celda = row.insertCell(-1);
-    celda.textContent = this.edad;
-    celda = row.insertCell(-1);
-    celda.textContent = this.grupo;
-    celda = row.insertCell(-1);
- 
-    return row;
-  }
+    HTMLrow() {
+        let row = document.createElement("TR");
+        let celda = row.insertCell(-1);
+        celda.textContent = this.dni;
+        celda = row.insertCell(-1);
+        celda.textContent = this.nombre;
+        celda = row.insertCell(-1);
+        celda.textContent = this.apellido;
+        celda = row.insertCell(-1);
+        celda.textContent = this.edad;
+        celda = row.insertCell(-1);
+        celda.textContent = this.grupo;
+        celda = row.insertCell(-1);
+
+        return row;
+    }
 }
 
 class Mensaje {
