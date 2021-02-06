@@ -219,8 +219,8 @@ function mandarMensaje(){
    
     // sacar los array de alumno y tutor
     
-    addOptions("selectPrimero", oPasen.mandarMensaje());
-    addOptions("selectSegundo", oPasen.mandarMensaje());
+    addOptions("selectPrimero", oPasen.cargarOptions());
+    addOptions("selectSegundo", oPasen.cargarOptions());
    }
    
    // Rutina para agregar opciones a un <select>

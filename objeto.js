@@ -45,7 +45,7 @@ class Pasen {
 
     }
 
-    cargarOption() {
+    cargarOptions() {
         let oMixta = [];
         this._alumno.forEach(element => {
             if(oMixta !== element.dni){
