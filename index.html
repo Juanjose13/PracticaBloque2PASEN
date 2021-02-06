@@ -148,7 +148,13 @@
       </form>
       </div>
       <div id="contenido" >
-        <div id="divMostrarListaAlumnos" class="col-8 m-auto divHijo" style="display: none;"></div>
+        <div id="divMostrarListaAlumnos" class="col-8 m-auto divHijo" style="display: none;">
+          <form class="buscar">
+            <input id="valor" type="text"/>
+            <button>Buscar</button>
+          </form>
+        </div>
+        
       </div>
   
 
@@ -195,7 +201,13 @@
           </form>
           </div>
           <div id="contenido" >
-            <div id="divMostrarListaTutor" class="col-8 m-auto divHijo" style="display: none;"></div>
+            <div id="divMostrarListaTutor" class="col-8 m-auto divHijo" style="display: none;">
+              <form class="buscar">
+                <input id="valor" type="text"/>
+                <button>Buscar</button>
+              </form>
+            </div>
+            
           </div>
     
           <!--GRUPO-->
@@ -239,25 +251,64 @@
                 </div>
               </form>
               </div>
-              <!-- <form id="miForm">
-                <select id="Cursos" name="Cursos">  
-                  <option id="opt0" value="#">Seleccione el tutor</option>
-                  <option id="opt1" value="1">Tutor 1</option>
-                  <option id="opt2" value="2">Tutor 2</option>
-                  <option id="opt3" value="3">Tutor 3</option>
-                </select> 
-                <input type="submit" name="btn1" value="Ir al curso">
-              </form>
-              <form id="miForm">
-                <select id="Cursos" name="Cursos">  
-                  <option id="opt0" value="#">Seleccione su alumno</option>
-                  <option id="opt1" value="1">Alumno 1</option>
-                  <option id="opt2" value="2">Alumno 2</option>
-                  <option id="opt3" value="3">Alumno 3</option>
-                </select> 
-                <input type="submit" name="btn1" value="Ir al curso">
-              </form> -->
-
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button>
+              <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <!--Body-->
+                        <div class="modal-body">
+                          <form>
+                            <div class="form-group row">
+                              <label class="col-4 col-form-label" for="enviar">Remitente</label> 
+                              <div class="col-8">
+                                <select id="enviar" name="enviar" class="custom-select" required="required">
+                                  <option value="rabbit">Rabbit</option>
+                                  <option value="duck">Duck</option>
+                                  <option value="fish">Fish</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="select" class="col-4 col-form-label">Destinatario</label> 
+                              <div class="col-8">
+                                <select id="select" name="select" class="custom-select">
+                                  <option value="rabbit">Rabbit</option>
+                                  <option value="duck">Duck</option>
+                                  <option value="fish">Fish</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="text" class="col-4 col-form-label">Titulo</label> 
+                              <div class="col-8">
+                                <input id="text" name="text" type="text" class="form-control" required="required">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="textarea" class="col-4 col-form-label">Asunto</label> 
+                              <div class="col-8">
+                                <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control" required="required"></textarea>
+                              </div>
+                            </div> 
+                          </form>
+                            
+            
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                            <button class="btn btn-outline-success">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 </body>

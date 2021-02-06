@@ -119,9 +119,9 @@ function ocultar()
   {
     ocultar();
         //vaciar tablas si es q hay
-        let $posibleTabla = document.querySelector(".table");
-        if ($posibleTabla != null) {
-            $posibleTabla.remove();
+        let existeTabla = document.querySelector(".table");
+        if (existeTabla != null) {
+            existeTabla.remove();
                    
         }
         // Ocultamos posibles formularios que puedan salir
@@ -129,11 +129,12 @@ function ocultar()
         divFrmAltaTutor.style.display="none";
         divFrmAltaGrupo.style.display="none";
         //creación de tabla
-        let $tabla = document.createElement("table");
-        $tabla.classList.add("table");
+        let tabla = document.createElement("table");
+        tabla.classList.add("table");
         document.querySelector(x).style.display = "block";
         
   }
+
 
 
 
@@ -261,6 +262,7 @@ document
   {
       
       mostrar("#divMostrarListaAlumnos");
+      divMostrarListaTutor.style.display="none";
       let tabla = genTablaAlumnos(
           ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
           "estaTablaAlumnos");
@@ -396,6 +398,7 @@ document
   {
       
       mostrar("#divMostrarListaTutor");
+      divMostrarListaAlumnos.style.display="none";
       let tabla = genTablaTutor(
           ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO",],
           "estaTablaTutor");

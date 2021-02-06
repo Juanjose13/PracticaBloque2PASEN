@@ -41,7 +41,12 @@ class Pasen {
         return bResultado;
 
     }
+    onInit(){
 
+    }
+    buscar(id){
+
+    }
     enviarMensaje(oMensaje) {
 
     }
