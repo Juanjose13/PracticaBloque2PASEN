@@ -301,7 +301,7 @@ function listadoAlumnos() {
     divMostrarListaGrupo.style.display = "none";
 
     let tabla = genTablaAlumnos(
-        ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO", ],
+        ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO"],
         "tabla");
 
 
@@ -434,7 +434,7 @@ function listadoTutores() {
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
     let tabla = genTablaTutor(
-        ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO", ],
+        ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO"],
         "tabla");
 
 
@@ -551,7 +551,7 @@ function listadoGrupos() {
     divMostrarListaTutor.style.display = "none";
     divMostrarListaAlumnos.style.display = "none";
     let tabla = genTablaGrupo(
-        ["ID", "GRUPO", "NºALUMNOS", "AULA", "CENTRO", ],
+        ["ID", "GRUPO", "NºALUMNOS", "AULA", "CENTRO"],
         "tabla");
 
 

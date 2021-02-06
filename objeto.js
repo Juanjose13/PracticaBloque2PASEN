@@ -70,7 +70,7 @@ class Grupo {
         celda.textContent = this.aula;
         celda = row.insertCell(-1);
         celda.textContent = this.centro;
-        celda = row.insertCell(-1);
+        
 
         return row;
     }
@@ -97,7 +97,7 @@ class Tutor {
         celda.textContent = this.asignatura;
         celda = row.insertCell(-1);
         celda.textContent = this.grupo;
-        celda = row.insertCell(-1);
+        
 
         return row;
     }
@@ -123,7 +123,7 @@ class Alumno {
         celda.textContent = this.edad;
         celda = row.insertCell(-1);
         celda.textContent = this.grupo;
-        celda = row.insertCell(-1);
+        
 
         return row;
     }
