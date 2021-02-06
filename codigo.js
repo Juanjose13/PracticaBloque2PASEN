@@ -282,12 +282,12 @@ document
       divMostrarListaTutor.style.display="none";
       let tabla = genTablaAlumnos(
           ["DNI", "NOMBRE", "APELLIDOS", "EDAD", "GRUPO",],
-          "estaTablaAlumnos");
+          "tabla");
           
           
           document.querySelector("#divMostrarListaAlumnos").appendChild(tabla);
           oPasen._alumno.forEach(oAlumno =>{if(oAlumno instanceof Alumno)
-            document.querySelector("#estaTablaAlumnos").tBodies[0].appendChild(oAlumno.HTMLrow())
+            document.querySelector("#tabla").tBodies[0].appendChild(oAlumno.HTMLrow())
             
         });
         
@@ -418,12 +418,12 @@ document
       divMostrarListaAlumnos.style.display="none";
       let tabla = genTablaTutor(
           ["DNI", "NOMBRE", "APELLIDOS", "ASIGNATURA", "GRUPO",],
-          "estaTablaTutor");
+          "tabla");
           
           
           document.querySelector("#divMostrarListaTutor").appendChild(tabla);
           oPasen._tutor.forEach(oTutor =>{if(oTutor instanceof Tutor)
-            document.querySelector("#estaTablaTutor").tBodies[0].appendChild(oTutor.HTMLrow())
+            document.querySelector("#tabla").tBodies[0].appendChild(oTutor.HTMLrow())
             
         });
 
@@ -533,12 +533,12 @@ document
       mostrar("#divMostrarListaGrupo");
       let tabla = genTablaGrupo(
           ["ID", "GRUPO", "NºALUMNOS", "AULA", "CENTRO",],
-          "estaTablaGrupo");
+          "tabla");
           
           
           document.querySelector("#divMostrarListaGrupo").appendChild(tabla);
           oPasen._grupo.forEach(oGrupo =>{if(oGrupo instanceof Grupo)
-            document.querySelector("#estaTablaGrupo").tBodies[0].appendChild(oGrupo.HTMLrow())
+            document.querySelector("#tabla").tBodies[0].appendChild(oGrupo.HTMLrow())
             
         });
 
@@ -568,6 +568,23 @@ document
             
         
     }
+
+    //BUSCAR EN LAS TABLAS
+    var busqueda = document.getElementById('buscar');
+    var table = document.getElementById("tabla").getElementsByTagName("tbody")[0];
+    
+    buscaTabla = function(){
+      texto = busqueda.value.toLowerCase();
+      var r=0;
+      while(row = table.rows[r++])
+      {
+          if ( row.innerText.toLowerCase().indexOf(texto) !== -1 )
+          row.style.display = null;
+          else
+          row.style.display = 'none';
+        }
+    }
+    busqueda.addEventListener('keyup', buscaTabla);
 
 
 // MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 

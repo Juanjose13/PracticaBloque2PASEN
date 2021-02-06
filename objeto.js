@@ -42,9 +42,23 @@ class Pasen {
 
     }
     onInit(){
+        let tabla = document.getElementsByClassName("table");
+        while(tabla.rows.length > 0){
+            tabla.deleteRow(0);
+        }
+        this._alumno.forEach(persona => {
+            let fila = tabla.insertRow(tabla.rows.length);
+            fila.insertCell(0).innerHTML = persona.HTMLrow();
+        });
 
     }
-    buscar(id){
+    buscar(dni){
+        let busqueda = document.getElementById(dni).value;
+        this._alumno = this.oAlumno;
+        this._alumno = this._alumno.filter(persona => {
+            return persona.dni.toLoweCase().indexOf(busqueda) > -1;
+        });
+        this.onInit();
 
     }
     enviarMensaje(oMensaje) {
