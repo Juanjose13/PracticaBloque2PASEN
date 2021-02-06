@@ -570,8 +570,8 @@ document
     }
 
     //BUSCAR EN LAS TABLAS
-    var busqueda = document.getElementById('buscar');
-    var table = document.getElementById("tabla").getElementsByTagName("tbody")[0];
+    // var busqueda = document.getElementById('buscar');
+    // var table = document.getElementById("tabla").getElementsByTagName("tbody")[0];
     
     buscaTabla = function(){
       texto = busqueda.value.toLowerCase();
