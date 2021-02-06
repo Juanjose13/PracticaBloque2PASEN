@@ -417,7 +417,7 @@ document
 
 
 
-    formTutor.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
+    formGrupo.btnAñadeGrupo.addEventListener("click",añadeGrupo,false);
     
     function añadeGrupo(){
     let oFormularioGrupo = document.getElementById("formGrupo");
