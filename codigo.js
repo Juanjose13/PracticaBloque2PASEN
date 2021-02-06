@@ -113,7 +113,18 @@ function ocultar()
   function mostrar(x) 
   {
     ocultar();
-    document.querySelector(x).style.display = "block";
+        //vaciar tablas si es q hay
+        let $posibleTabla = document.querySelector(".table");
+        if ($posibleTabla != null) {
+            $posibleTabla.remove();
+        }else{
+
+            
+            //creación de tabla
+            let $tabla = document.createElement("table");
+            $tabla.classList.add("table");
+            document.querySelector(x).style.display = "block";
+        }
   }
 
 
@@ -492,7 +503,18 @@ document
 //     text cuerpo del oMensajes
 
 //     para enviar el mensaje ver si se lo envio al alumno o al tutor (la que esta rellene)
+// document.getElementById("Cursos").addEventListener("change", function() {
 
+//     // crea un campo oculto con el mismo nombre que la lista desplegable
+//     var oculto = document.createElement("input");
+//     oculto.type  = "hidden";
+//     oculto.value = this.value;
+//     oculto.name  = this.name;
+//     document.getElementById("miForm").appendChild(oculto);
+    
+//     // deshabilita la lista desplegable
+//     this.disabled = "disabled";
+//   });
 
 
 function limpiarCampos(form){
