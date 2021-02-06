@@ -703,27 +703,6 @@ function buscaNombre() {
     }
 }
 
-//     
-// MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 
-// creo un formulario para enviar oMensajes desde el administrador hacia (tutor o alumno)
-//     un select de Alumno (si selecciono un alumno, ponga el select de tutor en blanco)
-//     un select de Tutor  (si selecciono un tutor, ponga el select de alumno en blanco)
-//     text encabezado
-//     text cuerpo del oMensajes
-
-//     para enviar el mensaje ver si se lo envio al alumno o al tutor (la que esta rellene)
-// document.getElementById("Cursos").addEventListener("change", function() {
-
-//     // crea un campo oculto con el mismo nombre que la lista desplegable
-//     var oculto = document.createElement("input");
-//     oculto.type  = "hidden";
-//     oculto.value = this.value;
-//     oculto.name  = this.name;
-//     document.getElementById("miForm").appendChild(oculto);
-
-//     // deshabilita la lista desplegable
-//     this.disabled = "disabled";
-//   });
 
 
 function limpiarCampos(form) {
