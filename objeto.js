@@ -66,17 +66,23 @@ class Grupo {
         this.aula = sAula;
         this.centro = sCentro;
     }
-    toHTMLrow() {
-        let sFila = "<tr>";
-        sFila += "<td>" + this.idGrupo + "</td>";
-        sFila += "<td>" + this.grupo + "</td>";
-        sFila += "<td>" + this.nAlumnos + "</td>";
-        sFila += "<td>" + this.aula + "</td>";
-        sFila += "<td>" + this.centro + "</td>";
-
-
-        return sFila;
-    }
+    HTMLrow()
+    {
+     let row = document.createElement("TR");
+     let celda = row.insertCell(-1);
+     celda.textContent = this.idGrupo;
+     celda = row.insertCell(-1);
+     celda.textContent = this.grupo;
+     celda = row.insertCell(-1);
+     celda.textContent = this.nAlumnos;
+     celda = row.insertCell(-1);
+     celda.textContent = this.aula;
+     celda = row.insertCell(-1);
+     celda.textContent = this.centro;
+     celda = row.insertCell(-1);
+  
+     return row;
+   }
 }
 
 class Tutor {

@@ -55,6 +55,7 @@ function validarLogin(){
 
 adXmlAlumno();
 adXmlTutor();
+adXmlGrupo();
 
 //CARGA DE LOS XML
 function loadXMLDoc(filename) 
@@ -97,6 +98,22 @@ function adXmlAlumno() {
          let grupo = oTutor.querySelector("grupo").textContent;
 
          oPasen.altaTutor(new Tutor(dni, nombre, apellido, asignatura, grupo));
+
+     });
+  }
+
+  function adXmlGrupo()
+  {
+     let datos = loadXMLDoc("grupo.xml");
+     datos.querySelectorAll("grupo").forEach(oGrupo =>{
+         let id = oGrupo.querySelector("id").textContent;
+         let sGrupo = oGrupo.querySelector("grup").textContent;
+         let nAlumnos = oGrupo.querySelector("nAlumnos").textContent;
+         let aula = oGrupo.querySelector("aula").textContent;
+         let centro = oGrupo.querySelector("centro").textContent;
+         
+
+         oPasen.altaGrupo(new Grupo(id, sGrupo, nAlumnos, aula, centro));
 
      });
   }
@@ -498,6 +515,56 @@ document
     }
     
 }
+
+
+//LISTADO de grupo
+
+document
+.querySelector("#listadoGrupo")
+  .addEventListener("click", listadoGrupos);
+  
+  
+  function listadoGrupos()
+  {
+      
+      mostrar("#divMostrarListaGrupo");
+      let tabla = genTablaGrupo(
+          ["ID", "GRUPO", "NºALUMNOS", "AULA", "CENTRO",],
+          "estaTablaGrupo");
+          
+          
+          document.querySelector("#divMostrarListaGrupo").appendChild(tabla);
+          oPasen._grupo.forEach(oGrupo =>{if(oGrupo instanceof Grupo)
+            document.querySelector("#estaTablaGrupo").tBodies[0].appendChild(oGrupo.HTMLrow())
+            
+        });
+
+        function genTablaGrupo(array, id)
+        {
+            let tabla = document.createElement("TABLE");
+            tabla.id = id;
+            tabla.classList.add("table");
+            let thead = tabla.createTHead();
+            let fila = thead.insertRow(-1);
+            array.forEach(titulo => {
+              thead = fila.insertCell(-1);
+              thead.textContent = titulo;
+            });
+            
+            tabla.addEventListener("click", e => {
+                let idGrupo;
+                if (e.target.tagName == "BUTTON") {
+                    idGrupo = e.target.parentNode.parentNode.cells[0].textContent;
+                
+                }
+            });
+            tabla.appendChild(document.createElement("TBODY"));
+              return tabla;
+            }
+            
+            
+        
+    }
 
 
 // MENSAJE -> crear un array, -> GENERICO un formulario, selecciones que alumno va o tutor, 
