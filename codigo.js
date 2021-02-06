@@ -569,7 +569,6 @@ function listadoTutores() {
 
 function añadeGrupo() {
     let oFormularioGrupo = document.getElementById("formGrupo");
-    // let oMensajes = document.getElementById("mensajesConductores");
 
     //VALIDAR FORMULARIOS -> ID 1122 {4 nºs}
     let sId = oFormularioGrupo.txtId.value.trim();
