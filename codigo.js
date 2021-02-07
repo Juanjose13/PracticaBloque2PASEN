@@ -391,6 +391,7 @@ document
 function listadoAlumnos() {
 
     mostrar("#divMostrarListaAlumnos");
+    divMostrarListaMensaje.style.display = "none";
     divMostrarListaTutor.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
 
@@ -525,6 +526,7 @@ document
 function listadoTutores() {
 
     mostrar("#divMostrarListaTutor");
+    divMostrarListaMensaje.style.display = "none";
     divMostrarListaAlumnos.style.display = "none";
     divMostrarListaGrupo.style.display = "none";
     let tabla = genTablaTutor(
