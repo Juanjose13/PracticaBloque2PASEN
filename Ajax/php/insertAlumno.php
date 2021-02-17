@@ -1,0 +1,3 @@
+<?php
+//PARA INSERTAR ALUMNOS
+?>

@@ -10,102 +10,67 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
-        * {
-            box-sizing: border-box;
-        }
         
-        #busca {
-            background-image: url('/css/searchicon.png');
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            width: 100%;
-            font-size: 16px;
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
-        
-        #tabla {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ddd;
-            font-size: 18px;
-        }
-        
-        #tabla th,
-        #tabla td {
-            text-align: left;
-            padding: 12px;
-        }
-        
-        #tabla tr {
-            border-bottom: 1px solid #ddd;
-        }
-        
-        #tabla tr.header,
-        #tabla tr:hover {
-            background-color: #727272;
-        }
     </style>
 </head>
 
 <body>
-
-
-
-
+    
+    
+    
+    
     <nav class="navbar navbar-expand">
         <a class="navbar-brand" href="#">PASEN</a>
-
-
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a href="#" id="btnIniciar" name="btnIniciar" value="Inicio" data-toggle="modal" data-target="#inicio">Inicio de Sesión</a>
-            </div>
+        
+        
+        
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a href="#" id="btnIniciar" name="btnIniciar" value="Inicio" data-toggle="modal" data-target="#inicio">Inicio de Sesión</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
 
-    <div class="modal" tabindex="-1" role="dialog" id="inicio">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div id="inicio">
-                        <form id="frmInicio" class="form-horizontal">
-                            <fieldset>
-
-                                <legend>Iniciar Sesión</legend>
-
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="txtCorreo">Correo</label>
-                                    <div class="col-md-6">
-                                        <input id="txtCorreo" name="txtCorreo" type="text" placeholder="Correo" class="form-control input-md" required>
-
+<div class="modal" tabindex="-1" role="dialog" id="inicio">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="inicio">
+                    <form id="frmInicio" class="form-horizontal">
+                        <fieldset>
+                            
+                            <legend>Iniciar Sesión</legend>
+                            
+                            
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="txtCorreo">Correo</label>
+                                <div class="col-md-6">
+                                    <input id="txtCorreo" name="txtCorreo" type="text" placeholder="Correo" class="form-control input-md" required>
+                                    
                                     </div>
                                 </div>
-
-
+                                
+                                
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="txtContraseña">Contraseña</label>
                                     <div class="col-md-6">
                                         <input id="txtContraseña" name="txtContraseña" type="password" placeholder="Contraseña" class="form-control input-md" required>
-
+                                        
                                     </div>
                                 </div>
-
-
+                                
+                                
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="btnInicio"></label>
                                     <div class="col-md-4">
@@ -116,7 +81,7 @@
                             </fieldset>
                         </form>
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -138,18 +103,18 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Listado
-            </a>
+                        Listado
+                    </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#" value="alumno" id="listadoAlumno">Listado Alumno con filtro </a>
                         <a class="dropdown-item" href="#" value="alumno" id="listadoTutor">Listado Básico Tutor </a>
                         <a class="dropdown-item" href="#" value="grupo" id="listadoGrupo">Listado Básico Grupo </a>
                         <a class="dropdown-item" href="#" value="grupo" id="listadoMensaje">Listado de Mensajes enviados </a>
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </div>
-    </nav>
-
+        </nav>
+        
     <!-- FORMULARIOS -->
     <!-- ALUMNOS -->
     <div id="divFrmAltaAlumno" display="none" class="container col-6 ">
@@ -197,11 +162,11 @@
             <input id="buscar" type="text" onkeyup="buscaNombre()" placeholder="Busqueda por nombre ..." />
             <a href="#"><img class="search-icon" width="50px" height="50px" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" /></a>
         </div>
-
+        
     </div>
 
-
-
+    
+    
     <!--TUTOR-->
     <div id="divFrmAltaTutor" display="none" class="container col-6 ">
         <h1>Formulario Tutor</h1>
@@ -246,9 +211,9 @@
     <div id="contenido">
         <div id="divMostrarListaTutor" class="col-8 m-auto divHijo" style="display: none;">
         </div>
-
+        
     </div>
-
+    
     <!--GRUPO-->
     <div id="divFrmAltaGrupo" display="none" class="container col-6 ">
         <h1>Formulario Grupo</h1>
@@ -292,11 +257,11 @@
     </div>
     <div id="contenido">
         <div id="divMostrarListaGrupo" class="col-8 m-auto divHijo" style="display: none;">
-
+            
         </div>
-
+        
     </div>
-
+    
     <!--MENSAJE-->
     <div id="divFrmAltaMensaje" display="none" class="container col-6 ">
         <h2 style="text-align:center;">Mensaje</h2>
@@ -307,14 +272,14 @@
                     <select id="selectPrimero" name="selectPrimero" class="select form-control" required="required">
                   <option value="0" selected>Seleccione una persona...</option>
                 </select>
-                </div>
             </div>
+        </div>
             <div class="form-group">
                 <label for="selectSegundo" class="control-label col-xs-4">Destinatario</label>
                 <div class="col-xs-8">
                     <select id="selectSegundo" name="selectSegundo" class="select form-control" required="required">
-                    <option value="0" selected>Seleccione una persona...</option>
-                </select>
+                        <option value="0" selected>Seleccione una persona...</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -339,13 +304,14 @@
     <div id="contenido">
         <div id="divMostrarListaMensaje" class="col-8 m-auto divHijo" style="display: none;">
             <h2>Listado de los mensajes enviados</h2>
-
+            
         </div>
-
+        
     </div>
-
+    
     <script src="objeto.js"></script>
     <script src="codigo.js"></script>
+    <link rel="stylesheet" src="../css/estilo.css">
 </body>
 
 </html>
