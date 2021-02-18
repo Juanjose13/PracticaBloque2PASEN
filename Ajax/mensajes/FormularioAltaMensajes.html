@@ -1,0 +1,45 @@
+<div id="divFrmAltaMensaje" display="none" class="container col-6 ">
+    <h2 style="text-align:center;">Mensaje</h2>
+    <form class="form-horizontal" name="formMensaje" id="formMensaje">
+        <div class="form-group">
+            <label for="selectPrimero" class="control-label col-xs-4">Remitente</label>
+            <div class="col-xs-8">
+                <select id="selectPrimero" name="selectPrimero" class="select form-control" required="required">
+              <option value="0" selected>Seleccione una persona...</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group">
+            <label for="selectSegundo" class="control-label col-xs-4">Destinatario</label>
+            <div class="col-xs-8">
+                <select id="selectSegundo" name="selectSegundo" class="select form-control" required="required">
+                    <option value="0" selected>Seleccione una persona...</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text" class="control-label col-xs-4">Asunto</label>
+            <div class="col-xs-8">
+                <input id="txtTitulo" name="txtTitulo" type="text" class="form-control" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="textarea" class="control-label col-xs-4">Mensaje</label>
+            <div class="col-xs-8">
+                <textarea id="txtMensaje" name="txtMensaje" cols="40" rows="5" class="form-control" required="required"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-offset-4 col-xs-8">
+                <button name="btnMensaje" type="button" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="contenido">
+    <div id="divMostrarListaMensaje" class="col-8 m-auto divHijo" style="display: none;">
+        <h2>Listado de los mensajes enviados</h2>
+        
+    </div>
+    
+</div>
