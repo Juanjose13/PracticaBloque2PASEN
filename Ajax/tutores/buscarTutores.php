@@ -13,7 +13,7 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mys
 mysqli_query($conexion,"utf8");
 
 // CONSULTA GENERICA DE LA TABLA "alumnos"
-$sql = "SELECT * FROM alumnos";
+$sql = "SELECT * FROM tutores";
 $resultado = mysqli_query($conexion, $sql);
 
 ////// DEVUELVE JSON 
