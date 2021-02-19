@@ -3,7 +3,7 @@
 // Carga dinámica de formularios
 $("#altaAlumno").click(abrirAltaAlumno);
 $("#altaTutor").click(abrirAltaTutor);
-$("#mostrarCarrito").click(abrirCarrito);
+// $("#mostrarCarrito").click(abrirCarrito);
 $("#altaEmpleado").click(abrirAltaEmpleado);
 $("#mostrarListadoCliente").click(fMostrarListadoCliente);
 $("#mostrarListadoVentas").click(fMostrarListadoVentas);
