@@ -10,7 +10,7 @@ frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 // document.querySelector("#btnAñadeGrupo").addEventListener("click", añadeGrupo, false);
 // document.querySelector("#btnAñadeMensaje").addEventListener("click", mandarMensaje, false);
 
-navegador.style.display = "none";
+// navegador.style.display = "none";
 // divFrmAltaAlumno.style.display = "none";
 // divFrmAltaTutor.style.display = "none";
 // divFrmAltaGrupo.style.display = "none";
@@ -153,18 +153,18 @@ function mostrar(x) {
 
 
 
-function altaAlumno() {
+// function altaAlumno() {
     
-    divFrmAltaAlumno.style.display = "block";
-    divFrmAltaTutor.style.display = "none";
-    divFrmAltaGrupo.style.display = "none";
-    divFrmAltaMensaje.style.display = "none";
-    divMostrarListaAlumnos.style.display = "none";
-    divMostrarListaTutor.style.display = "none";
-    divMostrarListaGrupo.style.display = "none";
-    divMostrarListaMensaje.style.display = "none";
+//     divFrmAltaAlumno.style.display = "block";
+//     divFrmAltaTutor.style.display = "none";
+//     divFrmAltaGrupo.style.display = "none";
+//     divFrmAltaMensaje.style.display = "none";
+//     divMostrarListaAlumnos.style.display = "none";
+//     divMostrarListaTutor.style.display = "none";
+//     divMostrarListaGrupo.style.display = "none";
+//     divMostrarListaMensaje.style.display = "none";
     
-}
+// }
 
 function altaTutor() {
     
