@@ -56,7 +56,7 @@ function validarLogin() {
     }
 }
 
-adXmlAlumno();
+/* adXmlAlumno();
 adXmlTutor();
 adXmlGrupo();
 
@@ -135,7 +135,7 @@ function mostrar(x) {
     if (existeTabla != null) {
         existeTabla.remove();
 
-    }
+    } 
     // Ocultamos posibles formularios que puedan salir
     divFrmAltaAlumno.style.display = "none";
     divFrmAltaTutor.style.display = "none";
@@ -147,7 +147,7 @@ function mostrar(x) {
     document.querySelector(x).style.display = "block";
 
 }
-
+*/
 
 
 
