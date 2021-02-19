@@ -5,10 +5,10 @@ var oPasen = new Pasen();
 frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 
 //Añadir datos de los formularios
-formAlumno.btnAñadeAlumno.addEventListener("click", añadeAlumno, false);
-formTutor.btnAñadeTutor.addEventListener("click", añadeTutor, false);
-formGrupo.btnAñadeGrupo.addEventListener("click", añadeGrupo, false);
-formMensaje.btnMensaje.addEventListener("click", mandarMensaje, false);
+document.querySelector("#btnAñadeAlumno").addEventListener("click", añadeAlumno, false);
+document.querySelector("#btnAñadeTutor").addEventListener("click", añadeTutor, false);
+document.querySelector("#btnAñadeGrupo").addEventListener("click", añadeGrupo, false);
+document.querySelector("#btnAñadeMensaje").addEventListener("click", mandarMensaje, false);
 
 navegador.style.display = "none";
 divFrmAltaAlumno.style.display = "none";
