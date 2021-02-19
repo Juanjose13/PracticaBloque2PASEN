@@ -1,4 +1,16 @@
 {
-	"folders": [],
-	"settings": {}
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\..\\Escritorio\\Cliente"
+		},
+		{
+			"path": "..\\..\\..\\Escritorio\\UPOteatro-master"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "UPOteatro-master"
+	}
 }
