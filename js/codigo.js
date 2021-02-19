@@ -5,16 +5,16 @@ var oPasen = new Pasen();
 frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 
 //Añadir datos de los formularios
-document.querySelector("#btnAñadeAlumno").addEventListener("click", añadeAlumno, false);
-document.querySelector("#btnAñadeTutor").addEventListener("click", añadeTutor, false);
-document.querySelector("#btnAñadeGrupo").addEventListener("click", añadeGrupo, false);
-document.querySelector("#btnAñadeMensaje").addEventListener("click", mandarMensaje, false);
+// document.querySelector("#btnAñadeAlumno").addEventListener("click", añadeAlumno, false);
+// document.querySelector("#btnAñadeTutor").addEventListener("click", añadeTutor, false);
+// document.querySelector("#btnAñadeGrupo").addEventListener("click", añadeGrupo, false);
+// document.querySelector("#btnAñadeMensaje").addEventListener("click", mandarMensaje, false);
 
 navegador.style.display = "none";
-divFrmAltaAlumno.style.display = "none";
-divFrmAltaTutor.style.display = "none";
-divFrmAltaGrupo.style.display = "none";
-divFrmAltaMensaje.style.display = "none";
+// divFrmAltaAlumno.style.display = "none";
+// divFrmAltaTutor.style.display = "none";
+// divFrmAltaGrupo.style.display = "none";
+// divFrmAltaMensaje.style.display = "none";
 
 function validarLogin() {
     let oValidarUsuario = frmInicio.txtCorreo.value.trim();
@@ -304,6 +304,29 @@ function listadoMensajes() {
 
 
 ///////////////////////////////////// FUNCIONES RELACIONADAS CON ALUMNOS ///////////////////////////////
+function peticionAjax2() {
+    validarAlumno();
+
+    // 1. Instanciar objeto AJAX
+    oAJAX = objetoXHR();
+
+    // 2. Construir URL y cadena de parametros
+    // var sURL = "holamundo.txt";
+    // var sParametros = "";
+
+    // 3. Definir manejador de eventos 
+    oAJAX.addEventListener("readystatechange", respuestaAjax1);
+
+    // 4. Definir la comunicacion asincrona --> true
+    oAJAX.open("POST", encodeURI(sURL), true);
+
+    // 5. Establecer cabecera POST
+    oAJAX.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // 6. Peticion al servidor
+    oAJAX.send(null);
+}
+
 
 function añadeAlumno() {
     let oFormularioAltaAlumno = document.getElementById("formAlumno");
@@ -367,15 +390,17 @@ function añadeAlumno() {
         document.getElementById("txtGrupo").style.color = "black";
     }
 
-    let nuevoAlumno = new Alumno(sDni, sNombre, sApellidos, sEdad, sGrupo);
+
+    // AHORA SE METE POR BBDD
+    // let nuevoAlumno = new Alumno(sDni, sNombre, sApellidos, sEdad, sGrupo);
 
 
-    if (oPasen.altaAlumnos(nuevoAlumno)) {
-        alert("Alumno Añadido!")
-        limpiarCampos(formAlumno);
-    } else {
-        alert("DNI Repetido!");
-    }
+    // if (oPasen.altaAlumnos(nuevoAlumno)) {
+    //     alert("Alumno Añadido!")
+    //     limpiarCampos(formAlumno);
+    // } else {
+    //     alert("DNI Repetido!");
+    // }
 
 
 }
