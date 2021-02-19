@@ -20,7 +20,7 @@ function abrirAltaAlumno() {
     if ($('#formAlumno').length == 0) {
         $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.html",
         function() {
-            $.getScript("../Ajax/alumnos/altaAlumno.js");
+            $.getScript("Ajax/alumnos/altaAlumno.js");
         });
         
     } else {
@@ -40,7 +40,7 @@ function abrirAltaTutor(){
     
     // Verifico si ya he cargado el formulario antes
     if ($('#formTutor').length == 0) {
-        $("<div>").appendTo('#formularios').load("../html/FormularioAltaTutor.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaTutor.html",
         function() {
             // $.getScript("tutor/altaTutor.js");
         });
@@ -60,7 +60,7 @@ function abrirAltaGrupo(){
     
     // Verifico si ya he cargado el formulario antes
     if ($('#formGrupo').length == 0) {
-        $("<div>").appendTo('#formularios').load("../html/FormularioAltaGrupo.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaGrupo.html",
         function() {
             // $.getScript("tutor/altaTutor.js");
         });
