@@ -83,9 +83,9 @@ function fAceptarAltaAlumno()
     } else {
     
         //let datosString = $('#frmAltaArticulo').serialize();
-    
+        alert($('#formAlumno').serialize());
         $.ajax({
-            url: "alumnos/insertAlumno.php",
+            url: "Ajax/alumnos/insertAlumno.php",
             data: $('#formAlumno').serialize(),
             cache: false,
             async: true, // por defecto
