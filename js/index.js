@@ -56,7 +56,7 @@ function abrirAltaTutor(){
     if ($('#formTutor').length == 0) {
         $("<div>").appendTo('#formularios').load("html/FormularioAltaTutor.html",
         function() {
-            $.getScript("tutor/altaTutor.js");
+            $.getScript("tutores/altaTutor.js");
         });
         
     } else {
