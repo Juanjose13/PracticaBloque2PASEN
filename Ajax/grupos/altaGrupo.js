@@ -8,7 +8,7 @@ function fAceptarAltaGrupo()
     let mensaje = "ERROR:";
     let bValido = true;
     limpiarErrores();
-    
+
 
     let sGrupo = oFormularioAltaGrupo.txtGrupo.value.trim();
     let oVerificaGrupo = /^[A-Z]{1}$/;
@@ -83,7 +83,7 @@ function fAceptarAltaGrupo()
             cache: false,
             async: true, // por defecto
             method: "POST",
-            success: respuestaAltaTutor
+            success: respuestaAltaGrupo
         });
       
         
@@ -92,7 +92,7 @@ function fAceptarAltaGrupo()
 
 }
 
-function respuestaAltaTutor(resultado) {
+function respuestaAltaGrupo(resultado) {
     let datos = JSON.parse(resultado);
     if (datos["error"]) {
         alert(datos["mensaje"]);
@@ -105,10 +105,10 @@ function respuestaAltaTutor(resultado) {
 
 function limpiarErrores() {
     // frmAltaArticulo.txtIDArticulo.classList.remove("error");
-    formTutor.txtDni.classList.remove("error");
-    formTutor.txtNombre.classList.remove("error");
-    formTutor.txtApellido.classList.remove("error");
-    formTutor.txtAsignatura.classList.remove("error");
+    formGrupo.txtGrupo.classList.remove("error");
+    formGrupo.numAlumnos.classList.remove("error");
+    formGrupo.txtAula.classList.remove("error");
+    formGrupo.txtCentro.classList.remove("error");
     // formTutor.txtGrupo.classList.remove("error");
  }
 

@@ -11,6 +11,29 @@ $("#btnInicio").click(validarLogin);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
 
 
+
+
+function validarLogin() {
+    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
+    let oValidarPass = frmInicio.txtContraseña.value.trim();
+    let iniciar = true;
+
+    let expReg = /^([a-zá-ú]{3,})+$/i;
+    if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
+        frmInicio.txtCorreo.style.color = "red";
+        iniciar = false;
+    } else {
+        frmInicio.txtCorreo.style.color = "black";
+    }
+
+    if (oValidarPass == "" || !expReg.test(oValidarPass)) {
+        frmInicio.txtContraseña.style.color = "red";
+        iniciar = false;
+    } else {
+        frmInicio.txtContraseña.style.color = "black";
+    }
+}
+
 function abrirAltaAlumno() {
 
     // Oculto todos los formularios menos este
@@ -103,28 +126,5 @@ function abrirAltaMensaje(){
         // Lo muestro si está oculto
         $('#formMensaje').show("normal");
         // formAlumno.style.display = "none";
-    }
-}
-frmInicio.btnInicio.addEventListener("click", validarLogin, false);
-
-
-function validarLogin() {
-    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
-    let oValidarPass = frmInicio.txtContraseña.value.trim();
-    let iniciar = true;
-
-    let expReg = /^([a-zá-ú]{3,})+$/i;
-    if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtCorreo.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtCorreo.style.color = "black";
-    }
-
-    if (oValidarPass == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtContraseña.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtContraseña.style.color = "black";
     }
 }

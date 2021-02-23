@@ -29,7 +29,7 @@
             <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label>
             <div class="col-8">
                 <select class="form-control" id="selectGrupo" name="selectGrupo" required="">
-                    <option selected value ="0">Seleccione una</option>
+                    <!-- <option selected value ="0">Seleccione una</option> -->
                                 <?php
             // Realizamos la consulta para extraer los datos
             $conexion = mysqli_connect("localhost", "root", "","pasen") or die(mysqli_error($conexion));
