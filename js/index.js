@@ -3,7 +3,7 @@
 // Carga dinámica de formularios
 $("#altaAlumno").click(abrirAltaAlumno);
 $("#altaTutor").click(abrirAltaTutor);
-// $("#mostrarCarrito").click(abrirCarrito);
+$("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
 //$("#mostrarListadoCliente").click(fMostrarListadoCliente);
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
@@ -82,6 +82,25 @@ function abrirAltaGrupo(){
     } else {
         // Lo muestro si está oculto
         $('#formGrupo').show("normal");
+        // formAlumno.style.display = "none";
+    }
+}
+function abrirAltaMensaje(){
+    // Oculto todos los formularios menos este
+    $("form:not('#divFrmAltaMensaje')").hide("normal");
+    $("#body").hide("normal");
+    // $("#formularios").hide("normal");
+    
+    // Verifico si ya he cargado el formulario antes
+    if ($('#formMensaje').length == 0) {
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaMensajes.html",
+        function() {
+            $.getScript("mensajes/altaMensaje.js");
+        });
+        
+    } else {
+        // Lo muestro si está oculto
+        $('#formMensaje').show("normal");
         // formAlumno.style.display = "none";
     }
 }

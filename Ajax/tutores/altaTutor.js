@@ -67,18 +67,7 @@ function fAceptarAltaTutor()
         document.getElementById("txtAsignatura").style.color = "black";
     }
 
-    let sGrupo = oFormularioAltaTutor.txtGrupo.value.trim();
-    let oVerificaGrupo = /([A-Z]\1)?$/;
-    // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
-    if (!oVerificaGrupo.test(sGrupo)) {
-        bValido = false;
-        mensaje += "\nDebe rellenar el campo Grupo";
-        document.getElementById("txtGrupo").focus();
-        document.getElementById("txtGrupo").style.color = "red";
-        return false;
-    } else {
-        document.getElementById("txtGrupo").style.color = "black";
-    }
+ 
 
 
     if (!bValido) {
