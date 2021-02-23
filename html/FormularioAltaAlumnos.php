@@ -53,11 +53,11 @@
             </div>
         </div>
     </form>
-</div>
-<div id="contenido">
+<!-- </div> -->
+<!-- <div id="contenido">
     <div id="divMostrarListaAlumnos" class="col-8 m-auto divHijo" style="display: none;">
         <input id="buscar" type="text" onkeyup="buscaNombre()" placeholder="Busqueda por nombre ..." />
         <a href="#"><img class="search-icon" width="50px" height="50px" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" /></a>
     </div>
     
-</div>
+</div> -->
