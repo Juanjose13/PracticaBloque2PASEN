@@ -5,6 +5,7 @@ $("#altaAlumno").click(abrirAltaAlumno);
 $("#altaTutor").click(abrirAltaTutor);
 $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
+$("#btnInicio").click(validarLogin);
 //$("#mostrarListadoCliente").click(fMostrarListadoCliente);
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
@@ -56,7 +57,7 @@ function abrirAltaTutor(){
     if ($('#formTutor').length == 0) {
         $("<div>").appendTo('#formularios').load("html/FormularioAltaTutor.html",
         function() {
-            $.getScript("tutores/altaTutor.js");
+            $.getScript("Ajax/tutores/altaTutor.js");
         });
         
     } else {
@@ -76,7 +77,7 @@ function abrirAltaGrupo(){
     if ($('#formGrupo').length == 0) {
         $("<div>").appendTo('#formularios').load("html/FormularioAltaGrupo.html",
         function() {
-            // $.getScript("tutor/altaTutor.js");
+            $.getScript("Ajax/grupos/altaGrupo.js");
         });
         
     } else {
@@ -95,12 +96,35 @@ function abrirAltaMensaje(){
     if ($('#formMensaje').length == 0) {
         $("<div>").appendTo('#formularios').load("html/FormularioAltaMensajes.html",
         function() {
-            $.getScript("mensajes/altaMensaje.js");
+            $.getScript("Ajax/mensajes/altaMensaje.js");
         });
         
     } else {
         // Lo muestro si está oculto
         $('#formMensaje').show("normal");
         // formAlumno.style.display = "none";
+    }
+}
+frmInicio.btnInicio.addEventListener("click", validarLogin, false);
+
+
+function validarLogin() {
+    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
+    let oValidarPass = frmInicio.txtContraseña.value.trim();
+    let iniciar = true;
+
+    let expReg = /^([a-zá-ú]{3,})+$/i;
+    if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
+        frmInicio.txtCorreo.style.color = "red";
+        iniciar = false;
+    } else {
+        frmInicio.txtCorreo.style.color = "black";
+    }
+
+    if (oValidarPass == "" || !expReg.test(oValidarPass)) {
+        frmInicio.txtContraseña.style.color = "red";
+        iniciar = false;
+    } else {
+        frmInicio.txtContraseña.style.color = "black";
     }
 }

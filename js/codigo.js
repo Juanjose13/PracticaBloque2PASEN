@@ -1,8 +1,8 @@
 //FUNCION PARA PROBAR INICIO DE SESION
 "use strict";
-var oPasen = new Pasen();
+// var oPasen = new Pasen();
 
-frmInicio.btnInicio.addEventListener("click", validarLogin, false);
+// frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 
 //Añadir datos de los formularios
 // document.querySelector("#btnAñadeAlumno").addEventListener("click", añadeAlumno, false);
@@ -16,45 +16,45 @@ frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 // divFrmAltaGrupo.style.display = "none";
 // divFrmAltaMensaje.style.display = "none";
 
-function validarLogin() {
-    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
-    let oValidarPass = frmInicio.txtContraseña.value.trim();
-    let iniciar = true;
+// function validarLogin() {
+//     let oValidarUsuario = frmInicio.txtCorreo.value.trim();
+//     let oValidarPass = frmInicio.txtContraseña.value.trim();
+//     let iniciar = true;
 
-    let expReg = /^([a-zá-ú]{3,})+$/i;
-    if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtCorreo.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtCorreo.style.color = "black";
-    }
+//     let expReg = /^([a-zá-ú]{3,})+$/i;
+//     if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
+//         frmInicio.txtCorreo.style.color = "red";
+//         iniciar = false;
+//     } else {
+//         frmInicio.txtCorreo.style.color = "black";
+//     }
 
-    if (oValidarPass == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtContraseña.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtContraseña.style.color = "black";
-    }
+//     if (oValidarPass == "" || !expReg.test(oValidarPass)) {
+//         frmInicio.txtContraseña.style.color = "red";
+//         iniciar = false;
+//     } else {
+//         frmInicio.txtContraseña.style.color = "black";
+//     }
 
-    if (iniciar) {
-        if (oValidarUsuario == 'usuario' && oValidarPass == 'usuario') {
-            frmInicio.btnInicio.setAttribute("data-dismiss", "modal");
-            navegador.style.display = "block";
-            divFrmAltaAlumno.style.display = "none";
-            divFrmAltaTutor.style.display = "none";
-            divFrmAltaGrupo.style.display = "none";
-            divFrmAltaMensaje.style.display = "none";
-            limpiarCampos(frmInicio);
+//     if (iniciar) {
+//         if (oValidarUsuario == 'usuario' && oValidarPass == 'usuario') {
+//             frmInicio.btnInicio.setAttribute("data-dismiss", "modal");
+//             navegador.style.display = "block";
+//             divFrmAltaAlumno.style.display = "none";
+//             divFrmAltaTutor.style.display = "none";
+//             divFrmAltaGrupo.style.display = "none";
+//             divFrmAltaMensaje.style.display = "none";
+//             limpiarCampos(frmInicio);
 
-        } else {
+//         } else {
 
-            frmInicio.txtCorreo.style.color = "red";
-            frmInicio.txtContraseña.style.color = "red";
-            alert("Porfavor ingrese, nombre de usuario y contraseña correctos.");
+//             frmInicio.txtCorreo.style.color = "red";
+//             frmInicio.txtContraseña.style.color = "red";
+//             alert("Porfavor ingrese, nombre de usuario y contraseña correctos.");
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 /* adXmlAlumno();
 adXmlTutor();

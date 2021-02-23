@@ -97,7 +97,7 @@ function respuestaAltaTutor(resultado) {
         alert(datos["mensaje"]);
     } else {
         alert(datos["mensaje"]);
-        frmAltaArticulo.reset();
+        formTutor.reset();
         $("#formTutor").parent().hide("normal");
     }
 }
@@ -108,6 +108,6 @@ function limpiarErrores() {
     formTutor.txtNombre.classList.remove("error");
     formTutor.txtApellido.classList.remove("error");
     formTutor.txtAsignatura.classList.remove("error");
-    formTutor.txtGrupo.classList.remove("error");
+    // formTutor.txtGrupo.classList.remove("error");
  }
 
