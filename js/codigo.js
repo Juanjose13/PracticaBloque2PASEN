@@ -16,45 +16,45 @@ frmInicio.btnInicio.addEventListener("click", validarLogin, false);
 // divFrmAltaGrupo.style.display = "none";
 // divFrmAltaMensaje.style.display = "none";
 
-function validarLogin() {
-    let oValidarUsuario = frmInicio.txtCorreo.value.trim();
-    let oValidarPass = frmInicio.txtContraseña.value.trim();
-    let iniciar = true;
+// function validarLogin() {
+//     let oValidarUsuario = frmInicio.txtCorreo.value.trim();
+//     let oValidarPass = frmInicio.txtContraseña.value.trim();
+//     let iniciar = true;
 
-    let expReg = /^([a-zá-ú]{3,})+$/i;
-    if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtCorreo.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtCorreo.style.color = "black";
-    }
+//     let expReg = /^([a-zá-ú]{3,})+$/i;
+//     if (oValidarUsuario == "" || !expReg.test(oValidarPass)) {
+//         frmInicio.txtCorreo.style.color = "red";
+//         iniciar = false;
+//     } else {
+//         frmInicio.txtCorreo.style.color = "black";
+//     }
 
-    if (oValidarPass == "" || !expReg.test(oValidarPass)) {
-        frmInicio.txtContraseña.style.color = "red";
-        iniciar = false;
-    } else {
-        frmInicio.txtContraseña.style.color = "black";
-    }
+//     if (oValidarPass == "" || !expReg.test(oValidarPass)) {
+//         frmInicio.txtContraseña.style.color = "red";
+//         iniciar = false;
+//     } else {
+//         frmInicio.txtContraseña.style.color = "black";
+//     }
 
-    if (iniciar) {
-        if (oValidarUsuario == 'usuario' && oValidarPass == 'usuario') {
-            frmInicio.btnInicio.setAttribute("data-dismiss", "modal");
-            navegador.style.display = "block";
-            divFrmAltaAlumno.style.display = "none";
-            divFrmAltaTutor.style.display = "none";
-            divFrmAltaGrupo.style.display = "none";
-            divFrmAltaMensaje.style.display = "none";
-            limpiarCampos(frmInicio);
+//     if (iniciar) {
+//         if (oValidarUsuario == 'usuario' && oValidarPass == 'usuario') {
+//             frmInicio.btnInicio.setAttribute("data-dismiss", "modal");
+//             navegador.style.display = "block";
+//             divFrmAltaAlumno.style.display = "none";
+//             divFrmAltaTutor.style.display = "none";
+//             divFrmAltaGrupo.style.display = "none";
+//             divFrmAltaMensaje.style.display = "none";
+//             limpiarCampos(frmInicio);
 
-        } else {
+//         } else {
 
-            frmInicio.txtCorreo.style.color = "red";
-            frmInicio.txtContraseña.style.color = "red";
-            alert("Porfavor ingrese, nombre de usuario y contraseña correctos.");
+//             frmInicio.txtCorreo.style.color = "red";
+//             frmInicio.txtContraseña.style.color = "red";
+//             alert("Porfavor ingrese, nombre de usuario y contraseña correctos.");
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 /* adXmlAlumno();
 adXmlTutor();
@@ -166,42 +166,42 @@ function mostrar(x) {
     
 // }
 
-function altaTutor() {
+// function altaTutor() {
     
-    divFrmAltaTutor.style.display = "block";
-    divFrmAltaAlumno.style.display = "none";
-    divFrmAltaGrupo.style.display = "none";
-    divFrmAltaMensaje.style.display = "none";
-    divMostrarListaAlumnos.style.display = "none";
-    divMostrarListaTutor.style.display = "none";
-    divMostrarListaGrupo.style.display = "none";
-    divMostrarListaMensaje.style.display = "none";
-}
+//     divFrmAltaTutor.style.display = "block";
+//     divFrmAltaAlumno.style.display = "none";
+//     divFrmAltaGrupo.style.display = "none";
+//     divFrmAltaMensaje.style.display = "none";
+//     divMostrarListaAlumnos.style.display = "none";
+//     divMostrarListaTutor.style.display = "none";
+//     divMostrarListaGrupo.style.display = "none";
+//     divMostrarListaMensaje.style.display = "none";
+// }
 
-function altaGrupo() {
+// function altaGrupo() {
     
-    divFrmAltaGrupo.style.display = "block";
-    divFrmAltaAlumno.style.display = "none";
-    divFrmAltaTutor.style.display = "none";
-    divFrmAltaMensaje.style.display = "none";
-    divMostrarListaAlumnos.style.display = "none";
-    divMostrarListaTutor.style.display = "none";
-    divMostrarListaGrupo.style.display = "none";
-    divMostrarListaMensaje.style.display = "none";
-}
+//     divFrmAltaGrupo.style.display = "block";
+//     divFrmAltaAlumno.style.display = "none";
+//     divFrmAltaTutor.style.display = "none";
+//     divFrmAltaMensaje.style.display = "none";
+//     divMostrarListaAlumnos.style.display = "none";
+//     divMostrarListaTutor.style.display = "none";
+//     divMostrarListaGrupo.style.display = "none";
+//     divMostrarListaMensaje.style.display = "none";
+// }
 
-function altaMensaje() {
+// function altaMensaje() {
 
-    divFrmAltaMensaje.style.display = "block";
-    divFrmAltaGrupo.style.display = "none";
-    divFrmAltaAlumno.style.display = "none";
-    divFrmAltaTutor.style.display = "none";
-    divMostrarListaAlumnos.style.display = "none";
-    divMostrarListaTutor.style.display = "none";
-    divMostrarListaGrupo.style.display = "none";
-    divMostrarListaMensaje.style.display = "none";
-    cargarOption();
-}
+//     divFrmAltaMensaje.style.display = "block";
+//     divFrmAltaGrupo.style.display = "none";
+//     divFrmAltaAlumno.style.display = "none";
+//     divFrmAltaTutor.style.display = "none";
+//     divMostrarListaAlumnos.style.display = "none";
+//     divMostrarListaTutor.style.display = "none";
+//     divMostrarListaGrupo.style.display = "none";
+//     divMostrarListaMensaje.style.display = "none";
+//     cargarOption();
+// }
 
 /////////////////////// Funciones relacionadas con MENSAJES /////////////////////////
 

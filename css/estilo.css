@@ -34,3 +34,6 @@
 #tabla tr:hover {
     background-color: #727272;
 }
+#navegador a:hover{
+    cursor:pointer;
+}
