@@ -63,21 +63,17 @@ function fAceptarAltaAlumno()
     } else {
         document.getElementById("txtEdad").style.color = "black";
     }
-    let sGrupo = oFormularioAltaAlumno.txtGrupo.value.trim();
-    let oVerificaGrupo = /([A-Z]\1)?$/;
-    // let sEdad = oFormularioAltaAlumno.txtEdad.value.trim();
-    if (!oVerificaGrupo.test(sGrupo)) {
-        // alert("Seleccione el grupo");
+    let sGrupo = oFormularioAltaAlumno.selectGrupo.value;
+    let oVerificarGrupo = /^\d{1}$/;
+    if (!oVerificarGrupo.test(sGrupo)) {
         bValido = false;
-        mensaje += "\nDebe rellenar el campo Grupo";
-        document.getElementById("txtGrupo").focus();
-        document.getElementById("txtGrupo").style.color = "red";
+        mensaje += "\nDebe rellenar el campo EDAD";
+        document.getElementById("txtEdad").focus();
+        document.getElementById("txtEdad").style.color = "red";
         return false;
     } else {
-        document.getElementById("txtGrupo").style.color = "black";
+        document.getElementById("txtEdad").style.color = "black";
     }
-    
-    
     if (!bValido) {
         alert(mensaje);
     } else {
@@ -102,7 +98,7 @@ function fAceptarAltaAlumno()
             alert(datos["mensaje"]);
         } else {
             alert(datos["mensaje"]);
-            frmAltaArticulo.reset();
+            formAlumno.reset();
             $("#formAlumno").parent().hide("normal");
         }
     }
@@ -110,14 +106,11 @@ function fAceptarAltaAlumno()
     
 
     function limpiarErrores() {
-       // frmAltaArticulo.txtIDArticulo.classList.remove("error");
         formAlumno.txtDni.classList.remove("error");
         formAlumno.txtNombre.classList.remove("error");
         formAlumno.txtApellido.classList.remove("error");
         formAlumno.txtEdad.classList.remove("error");
-        formAlumno.txtGrupo.classList.remove("error");
+        formAlumno.selectGrupo.classList.remove("error");
     }
-
-
 
 

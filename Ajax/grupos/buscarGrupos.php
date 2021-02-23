@@ -13,8 +13,10 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mys
 mysqli_query($conexion,"utf8");
 
 // CONSULTA GENERICA DE LA TABLA "alumnos"
-$sql = "SELECT * FROM grupos";
+$sqlSelect = "SELECT idGrupo, grupo FROM grupos";
 
+$resultado = mysqli_query($conexion, $sqlSelect);
+echo json_encode($resultado);
 /*
  *****************   SQL PARA SACAR COSAS DEL GRUPO + NOMBRE DEL TUTOR QUE TIENE ESE GRUPO  *******************************************
 SELECT grupos.grupo, grupos.aula, grupos.nAlumnos,grupos.centro, tutores.nombreTutor FROM grupos 
@@ -31,8 +33,6 @@ INNER JOIN grupos ON gruposalumnos.idGrupoFK = grupos.idGrupo
 where grupos.idGrupo = 1
 *******************************************************************************************************************************************
 */
-$resultado = mysqli_query($conexion, $sql);
 
 ////// DEVUELVE JSON 
-echo json_encode($resultado);
 ?>

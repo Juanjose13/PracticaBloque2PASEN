@@ -28,14 +28,17 @@
         <div class="form-group row">
             <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label>
             <div class="col-8">
-                <select id="selectGrupo">
+                <select class="form-control" id="selectGrupo" name="selectGrupo" required="">
                     <option selected value ="0">Seleccione una</option>
-                                ?php
+                                <?php
             // Realizamos la consulta para extraer los datos
-                    $query = $mysqli -> query ("SELECT * FROM paises");
-                    while ($valores = mysqli_fetch_array($query)) {
+            $conexion = mysqli_connect("localhost", "root", "","pasen") or die(mysqli_error($conexion));
+            $sqlSelect = "SELECT idGrupo, grupo FROM grupos";
+                mysqli_query($conexion,"utf8");
+                $resultado = mysqli_query($conexion, $sqlSelect);
+                    while ($valores = mysqli_fetch_array($resultado)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                        echo '<option value="'.$valores[id].'">'.$valores[paises].'</option>';
+                        echo '<option value="'.$valores["idGrupo"].'">'.$valores["grupo"].'</option>';
                     }
                   ?>
 

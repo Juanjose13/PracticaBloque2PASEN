@@ -18,10 +18,24 @@ function abrirAltaAlumno() {
 
     // Verifico si ya he cargado el formulario antes
     if ($('#formAlumno').length == 0) {
-        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.php",
         function() {
             $.getScript("Ajax/alumnos/altaAlumno.js");
         });
+            // $.ajax({
+            //     url: "Ajax/grupos/buscarGrupos.php",
+            //     // data: "FormularioAltaAlumnos.html",
+            //     cache: false,
+            //     async: true, // por defecto
+            //     method: "POST",
+            //     success: function(resultado){
+            //         let datosSelect = JSON.parse(resultado);
+            //         datosSelect.forEach(element => {
+            //             alert(element.idGrupo);
+            //         });
+            //         return datosSelect;
+            //     }
+            // });
         
     } else {
         
