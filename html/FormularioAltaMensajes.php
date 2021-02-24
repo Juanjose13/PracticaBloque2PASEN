@@ -3,35 +3,41 @@
         <h2>Mensajes </h2>
         <div class="form-group">
             <label for="selectPrimero" class="control-label col-xs-4">Remitente</label>
+           
+           
             <div class="col-xs-8">
-                <select id="selectPrimero" name="selectPrimero" class="select form-control" required="required">
+                <select id="selectTutor" name="selectPrimero" class="select form-control" required="required">
               <option value="0" selected>Seleccione una persona...</option>
               <?php
-              
+           
               // Realizamos la consulta para extraer los datos
               $conexion = mysqli_connect("localhost", "root", "","pasen") or die(mysqli_error($conexion));
-              $sqlSelect = "SELECT nombreAlumno as Nombre FROM alumnos UNION SELECT nombreTutor from tutores";
-                  mysqli_query($conexion,"utf8");
-                  $resultado = mysqli_query($conexion, $sqlSelect);
-                      foreach ($resultado as $key => $valores) {
-              // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                          echo '<option value="'.$valores["Nombre"].'">'.$valores["Nombre"].'</option>';
-                      }
-               
 
+              $sqlSelect = "SELECT tutores.idTutor as id, tutores.nombreTutor as nombre from tutores";
+              mysqli_query($conexion,"utf8");
+              $resultado = mysqli_query($conexion, $sqlSelect);
+              foreach ($resultado as $key => $valores) {
+                  // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                  echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
+                }
+                
+                
                 ?>
             </select>
+            
         </div>
     </div>
-        <div class="form-group">
-            <label for="selectSegundo" class="control-label col-xs-4">Destinatario</label>
-            <div class="col-xs-8">
-                <select id="selectSegundo" name="selectSegundo" class="select form-control" required="required">
-                    <option value="0" selected>Seleccione una persona...</option>
-                    <?php
-                     foreach ($resultado as $key => $valores) {
+    <div class="form-group">
+        <label for="selectSegundo" class="control-label col-xs-4">Destinatario</label>
+        <div class="col-xs-8">
+            <select id="selectSegundo" name="selectSegundo" class="select form-control" required="required">
+                <option value="0" selected>Seleccione una persona...</option>
+                <?php
+                $sqlSelect2 = "SELECT alumnos.idAlumno as id, alumnos.nombreAlumno as nombre from alumnos";
+                $resultado2 = mysqli_query($conexion, $sqlSelect2);
+                     foreach ($resultado2 as $key => $valores2) {
                         // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                                    echo '<option value="'.$valores["Nombre"].'">'.$valores["Nombre"].'</option>';
+                                    echo '<option value="'.$valores2["id"].'">'.$valores2["nombre"].'</option>';
                                 }
                     ?>
                 </select>
@@ -51,7 +57,7 @@
         </div>
         <div class="form-group row">
             <div class="col-xs-offset-4 col-xs-8">
-                <button name="btnMensaje" type="button" class="btn btn-primary">Enviar</button>
+                <button name="btnMensaje" id="btnMensaje" type="button" class="btn btn-primary">Enviar</button>
             </div>
         </div>
     </form>

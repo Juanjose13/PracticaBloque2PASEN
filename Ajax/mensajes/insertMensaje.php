@@ -18,9 +18,23 @@ $mensaje = $_POST["txtMensaje"];
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
 mysqli_query($conexion,"utf8");
 
+// Abtengo los ID de los seleccionados
+$sql2 = "SELECT tutores.nombreTutor as tutor, alumnos.nombreAlumno as alumno from tutores,alumnos WHERE tutores.idTutor= $primero AND alumnos.idAlumno=$segundo";
+$resultSet = mysqli_query($conexion,$sql2);
+while($fila = mysqli_fetch_assoc($resultSet)){
+    extract($fila);
+    // echo "<pre>";
+    // print_r($fila);
+    // echo "</pre>";
+
+    // echo $tutor;
+    // echo $alumno;
+}
+
 // Consulta SQL para obtener los datos de los centros.
-// $sql = "INSERT INTO alumnos (dniAlumno, nombreAlumno, apellido, edad) VALUES ($dni,'$nombre','$apellido',$edad);";
-// $resultado = mysqli_query($conexion,$sql);
+$sql = "INSERT INTO mensajes (nombreEmisor, nombreReceptor, tituloMensaje, contenidoMensaje,idTutorFK, idAlumnoFK) VALUES ('$tutor','$alumno','$titulo','$mensaje',$primero,$segundo)";
+
+$resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){
     $respuesta["error"] = 0;

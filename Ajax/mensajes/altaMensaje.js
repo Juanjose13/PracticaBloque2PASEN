@@ -1,14 +1,31 @@
 'use strict';
 //# sourceURL=altaArticulo.js;
-$("#btnAñadeMensaje").click(fAceptarAltaMensaje);
-alert("llegó");
+$("#btnMensaje").click(fAceptarAltaMensaje);
+// alert("llegó");
+// $("#selectPrimero").attr("style","display: none;");
+// $("#selectSegundo").attr("style","display: none;");
 
+// $(document).ready(function(){
+//     $("#categoria").change(function(){
+//         $("#selectPrimero").removeAttr("style","display: none;");
+//         $("#categoria").attr("style","display: none;");
+//     });
+//   });
+
+//   $('select#categoria').on('change',function(){
+//     var valor = $(this).val();
+//     function select(valor);
+    
+// });
+
+  
 function fAceptarAltaMensaje()
 {
     let oFormularioAltaMensaje = document.getElementById("formMensaje");
     let mensaje = "ERROR:";
     let bValido = true;
     limpiarErrores();
+
     
     alert($('#formMensaje').serialize());
     //VALIDAR FORMULARIOS -> DNI 11222333A {9 nºs y letra en mayúscula}
