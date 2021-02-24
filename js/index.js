@@ -6,7 +6,8 @@ $("#altaTutor").click(abrirAltaTutor);
 $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
 $("#btnInicio").click(validarLogin);
-//$("#mostrarListadoCliente").click(fMostrarListadoCliente);
+$("#listadoAlumno").click(listarAlumnos);
+
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
 
@@ -127,4 +128,43 @@ function abrirAltaMensaje(){
         $('#formMensaje').show("normal");
         // formAlumno.style.display = "none";
     }
+}
+//LIstados alumnos
+function listarAlumnos(){
+    fOcultarFormularios();
+    fVaciarTabla();
+    //Borrar los nodos hijos de la tabla
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "ID";
+    cabecera.insertCell(-1).textContent = "DNI";
+    cabecera.insertCell(-1).textContent = "NOMBRE";
+    cabecera.insertCell(-1).textContent = "APELLIDOS";
+    cabecera.insertCell(-1).textContent = "EDAD";
+    
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
+    //Añadir las filas a la tabla
+    //GET from alumnos
+      $.get("alumnos/listadoAlumnos.php", respuestaListadoAlumnos, "xml");
+      function respuestaListadoAlumnos(oXML){
+        let alumnos = oXML.querySelectorAll("cliente");
+        
+        alumnos.forEach(function(cliente){
+            let fila = tBody.insertRow(-1);
+            fila.insertCell(-1).textContent = cliente.querySelector("idAlumno").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("dniAlumno").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("nombreAlumno").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("apellido").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("edad").textContent;
+           
+        });
+        
+      }
+    
+    document.getElementById("tabla").style.display = "table";
+    //$("#body").style.display = "block";
+    $("#body").show("normal");
 }
