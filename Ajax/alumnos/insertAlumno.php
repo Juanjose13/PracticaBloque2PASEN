@@ -24,8 +24,9 @@ $resultado = mysqli_query($conexion,$sql);
 
 $id="SELECT MAX(idAlumno) AS id FROM alumnos";
 $resultado3 = mysqli_query($conexion,$id);
-while ($row = $resultado3->fetch_assoc()) {
-    $sql2 = "INSERT INTO gruposalumnos (idAlumnoFK,idGrupoFK) VALUES ($row,$idGrupo)";
+
+while ($row = mysqli_fetch_assoc($resultado3)) {
+    $sql2 = "INSERT INTO gruposalumnos (idAlumnoFK,idGrupoFK) VALUES (".$row["id"].",$idGrupo)";
 }
 $resultado2 = mysqli_query($conexion,$sql2);
 

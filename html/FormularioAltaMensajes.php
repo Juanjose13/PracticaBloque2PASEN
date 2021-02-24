@@ -6,6 +6,20 @@
             <div class="col-xs-8">
                 <select id="selectPrimero" name="selectPrimero" class="select form-control" required="required">
               <option value="0" selected>Seleccione una persona...</option>
+              <?php
+              
+              // Realizamos la consulta para extraer los datos
+              $conexion = mysqli_connect("localhost", "root", "","pasen") or die(mysqli_error($conexion));
+              $sqlSelect = "SELECT nombreAlumno as Nombre FROM alumnos UNION SELECT nombreTutor from tutores";
+                  mysqli_query($conexion,"utf8");
+                  $resultado = mysqli_query($conexion, $sqlSelect);
+                      foreach ($resultado as $key => $valores) {
+              // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                          echo '<option value="'.$valores["Nombre"].'">'.$valores["Nombre"].'</option>';
+                      }
+               
+
+                ?>
             </select>
         </div>
     </div>
@@ -14,6 +28,12 @@
             <div class="col-xs-8">
                 <select id="selectSegundo" name="selectSegundo" class="select form-control" required="required">
                     <option value="0" selected>Seleccione una persona...</option>
+                    <?php
+                     foreach ($resultado as $key => $valores) {
+                        // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                                    echo '<option value="'.$valores["Nombre"].'">'.$valores["Nombre"].'</option>';
+                                }
+                    ?>
                 </select>
             </div>
         </div>

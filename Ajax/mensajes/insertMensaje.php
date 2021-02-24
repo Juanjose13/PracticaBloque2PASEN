@@ -8,10 +8,11 @@ $basedatos = "pasen";
 $usuario   = "root";
 $password  = "";
 
-// $dani = dni alumno;
-// $nombre = nombre del alumno;
-// $apellido = apellidos alumnos;
-// $edad = edad ;
+$primero = $_POST["selectPrimero"];
+$segundo = $_POST["selectSegundo"];
+$titulo = $_POST["txtTitulo"];
+$mensaje = $_POST["txtMensaje"];
+
 
 // Creamos la conexión al servidor.
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
