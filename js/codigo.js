@@ -300,7 +300,35 @@ function listadoMensajes() {
 
 }
     
+    //OCULTAR FORMULARIOS 
+    // mostrar y ocultar formularios cuando hacemos click:
+function fOcultarFormularios(){
+    document.getElementById("formularios").style.display = "none";
+    //frmAltaEmpleado.style.display = "none";
+    if(document.getElementById("formAlumno") != null){
+        frmAltaAlumno.style.display = "none";
+    }
+    /*if($.contains(document.body, document.getElementById("frmAltaArticulo") )) {
+        frmAltaArticulo.style.display = "none";
+    }*/
+    if(document.getElementById("formTutor") != null){
+        frmAltaTutor.style.display = "none";
+    }
+    if(document.getElementById("formGrupo") != null){
+        frmAltaGrupo.style.display = "none";
+    }
+    //frmAltaCliente.style.display = "none";  
     
+}
+
+function fVaciarTabla(){
+    let hijosTabla = document.querySelectorAll('#tabla > *');
+    if(hijosTabla.length > 0){
+        hijosTabla.forEach(hijo=>{
+            hijo.remove();
+        })
+    }
+}
 
 
 ///////////////////////////////////// FUNCIONES RELACIONADAS CON ALUMNOS ///////////////////////////////
@@ -408,7 +436,7 @@ function añadeAlumno() {
 
 //LISTADO ALUMNOS
 
-document
+/* document
     .querySelector("#listadoAlumno")
     .addEventListener("click", listadoAlumnos);
 
@@ -457,7 +485,7 @@ function listadoAlumnos() {
 
 
 
-}
+} */
 
 function añadeTutor() {
 
