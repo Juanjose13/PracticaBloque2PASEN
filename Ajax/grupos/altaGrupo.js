@@ -67,7 +67,7 @@ function fAceptarAltaGrupo()
     } else {
         document.getElementById("txtCentro").style.color = "black";
     }
-
+    
  
 
 

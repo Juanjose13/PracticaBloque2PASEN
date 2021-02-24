@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="txtApellido" class="col-4 col-form-label">Apellidos:</label>
+            <label for="selectGrupo" class="col-4 col-form-label">Asignar Tutor:</label>
             <div class="col-8">
             <select class="form-control" id="selectGrupo" name="selectGrupo" required="">
                 <?php

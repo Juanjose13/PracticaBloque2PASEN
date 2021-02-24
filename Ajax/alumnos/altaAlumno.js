@@ -63,17 +63,7 @@ function fAceptarAltaAlumno()
     } else {
         document.getElementById("txtEdad").style.color = "black";
     }
-    let sGrupo = oFormularioAltaAlumno.selectGrupo.value;
-    let oVerificarGrupo = /^\d{1}$/;
-    if (!oVerificarGrupo.test(sGrupo)) {
-        bValido = false;
-        mensaje += "\nDebe rellenar el campo EDAD";
-        document.getElementById("txtEdad").focus();
-        document.getElementById("txtEdad").style.color = "red";
-        return false;
-    } else {
-        document.getElementById("txtEdad").style.color = "black";
-    }
+   
     if (!bValido) {
         alert(mensaje);
     } else {

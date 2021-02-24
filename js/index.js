@@ -98,7 +98,7 @@ function abrirAltaGrupo(){
     
     // Verifico si ya he cargado el formulario antes
     if ($('#formGrupo').length == 0) {
-        $("<div>").appendTo('#formularios').load("html/FormularioAltaGrupo.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaGrupo.php",
         function() {
             $.getScript("Ajax/grupos/altaGrupo.js");
         });
