@@ -118,7 +118,7 @@ function abrirAltaMensaje(){
     
     // Verifico si ya he cargado el formulario antes
     if ($('#formMensaje').length == 0) {
-        $("<div>").appendTo('#formularios').load("html/FormularioAltaMensajes.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaMensajes.php",
         function() {
             $.getScript("Ajax/mensajes/altaMensaje.js");
         });
