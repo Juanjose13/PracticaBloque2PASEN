@@ -2,7 +2,6 @@
 
 // Carga dinámica de formularios
 $("#altaAlumno").click(abrirAltaAlumno);
-// $("#altaAlumno").click(function() { rellenarCombosGrupos();});
 $("#altaTutor").click(abrirAltaTutor);
 $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
@@ -48,7 +47,7 @@ function abrirAltaAlumno() {
     // Verifico si ya he cargado el formulario antes
     if ($('#formAlumno').length == 0) {
         
-        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.html",
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.php",
         function() {
             $.getScript("Ajax/alumnos/altaAlumno.js");
         });
