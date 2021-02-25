@@ -13,10 +13,25 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mys
 mysqli_query($conexion,"utf8");
 
 // CONSULTA GENERICA DE LA TABLA "alumnos"
-$sqlSelect = "SELECT idGrupo, grupo FROM grupos";
+$sqlSelect = "SELECT idGrupo as idgrupo, grupo FROM grupos";
 
 $resultado = mysqli_query($conexion, $sqlSelect);
-echo json_encode($resultado);
+$listadoGrupo=[];
+while($fila = mysqli_fetch_assoc($resultado))
+{
+    $listadoGrupo[] = $fila;
+
+}
+
+$combo = [];
+foreach($listadoGrupo as $key => $value){
+    array_push($combo,$value);
+}
+// echo "<pre>";
+// print_r($combo);
+// echo "</pre>";
+// mysqli_close($conexion);
+echo json_encode($combo);
 /*
  *****************   SQL PARA SACAR COSAS DEL GRUPO + NOMBRE DEL TUTOR QUE TIENE ESE GRUPO  *******************************************
 SELECT grupos.grupo, grupos.aula, grupos.nAlumnos,grupos.centro, tutores.nombreTutor FROM grupos 

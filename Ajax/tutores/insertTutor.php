@@ -7,13 +7,8 @@ $basedatos = "pasen";
 $usuario   = "root";
 $password  = "";
 
-// $dani = dni alumno;
-// $nombre = nombre del alumno;
-// $apellido = apellidos alumnos;
-// $edad = edad ;
-$dni = $_POST["txtDni"];
-$nombre = $_POST["txtNombre"];
-$asignatura = $_POST["txtAsignatura"];
+extract($_POST);
+
 
 
 // Creamos la conexión al servidor.

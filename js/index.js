@@ -2,12 +2,14 @@
 
 // Carga dinámica de formularios
 $("#altaAlumno").click(abrirAltaAlumno);
+// $("#altaAlumno").click(function() { rellenarCombosGrupos();});
 $("#altaTutor").click(abrirAltaTutor);
 $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
 $("#btnInicio").click(validarLogin);
+// $("#listadoAlumno").click(listarAlumnos);
+// $("#altaAlumno").click(function() {$("#listados").hide(); $("#formulario").hide(); rellenarCombosTurismos();});
 $("#listadoAlumno").click(listarAlumnos);
-$("#listadoAlumno").click(function() {$("#listados").show(); $("#formularios").hide(); listarAlumnos();});
 
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
@@ -45,12 +47,13 @@ function abrirAltaAlumno() {
 
     // Verifico si ya he cargado el formulario antes
     if ($('#formAlumno').length == 0) {
-        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.php",
+        
+        $("<div>").appendTo('#formularios').load("html/FormularioAltaAlumnos.html",
         function() {
             $.getScript("Ajax/alumnos/altaAlumno.js");
         });
          
-        
+        rellenarCombosGrupos();
     } else {
         
         
@@ -118,6 +121,73 @@ function abrirAltaMensaje(){
         // formAlumno.style.display = "none";
     }
 }
+function rellenarCombosGrupos()
+{
+    alert("rellenarCombosGrupos");
+    var oListaGrupo = null;
+    if(localStorage["grupo"] != null)
+    {
+        oListaGrupo = JSON.parse(localStorage["grupo"]);
+        procesarRellenarComboGrupo(oListaGrupo);
+    }
+    else
+    {
+        let oAjax = instanciarXHR();
+        alert("Llega al PHP");
+        var sURL = "/grupos/buscarGrupos.php";
+
+        oAjax.open("GET", encodeURI(sURL));
+
+        oAjax.addEventListener("readystatechange", procesarRespuesta);
+
+        oAjax.send();
+    }
+}
+
+function instanciarXHR() {
+    var xhttp = null;
+
+    if (window.XMLHttpRequest) {
+        xhttp = new XMLHttpRequest();
+    } else // code for IE5 and IE6
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    return xhttp;
+}
+
+function procesarRespuesta()
+{ /* PASAR A JSON.PARSE LA RESPUESTA DEL SERVIDOR */
+    var oAjax = this;
+    //console.log(oAjax.responseText)
+
+    if (oAjax.readyState == 4 && oAjax.status == 200) 
+    {
+       let olistadoGrupo =  JSON.parse(oAjax.responseText);
+       console.log(olistadoGrupo)
+        procesarRellenarComboGrupo(olistadoGrupo);
+        /* PASAR A JSON.STRINGIFY EL ARRAY */
+        localStorage["grupo"] = JSON.stringify(olistadoGrupo);
+
+    }
+}
+
+function procesarRellenarComboGrupo(olistadoGrupo)
+{
+    console.log(olistadoGrupo);
+    $("#selectGrupo").empty();
+    let sOption="";
+    for(let i=0;i<olistadoGrupo.length;i++)
+    {
+        sOption += "<option value='"+olistadoGrupo[i].idgrupo+"'>"+olistadoGrupo[i].grupo+"</option>"
+    }
+
+    $("#selectGrupo").html(sOption);
+
+}
+
+
 //LIstados alumnos
 function listarAlumnos(){
     // fOcultarFormularios();

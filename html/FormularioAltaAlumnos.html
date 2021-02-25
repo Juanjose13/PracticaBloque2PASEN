@@ -29,15 +29,7 @@
             <label for="txtGrupo" class="col-4 col-form-label">Grupo:</label>
             <div class="col-8">
                 <select id="selectGrupo">
-                    <option selected value ="0">Seleccione una</option>
-                                ?php
-            // Realizamos la consulta para extraer los datos
-                    $query = $mysqli -> query ("SELECT * FROM paises");
-                    while ($valores = mysqli_fetch_array($query)) {
-            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                        echo '<option value="'.$valores[id].'">'.$valores[paises].'</option>';
-                    }
-                  ?>
+           
 
                 </select>
                 

@@ -41,20 +41,6 @@ function fAceptarAltaTutor()
 
     }
 
-    let sApellidos = oFormularioAltaTutor.txtApellido.value.trim();
-    if (sApellidos.length == 0 || /^\s+$/.test(sApellidos)) {
-        // alert("Campo vacío, rellénelo");
-        bValido = false;
-        mensaje += "\nEl apellido es incorrecto.";
-        document.getElementById("txtApellido").focus();
-        document.getElementById("txtApellido").style.color = "red";
-        
-        return false;
-    } 
-    else
-    {
-        document.getElementById("txtApellido").style.color = "black";
-    }
 
     let sAsignatura = oFormularioAltaTutor.txtAsignatura.value.trim();
     if (sAsignatura.length == "" || /^\s+$/.test(sAsignatura)) {
@@ -74,40 +60,39 @@ function fAceptarAltaTutor()
         alert(mensaje);
     } else {
     
-        //let datosString = $('#frmAltaArticulo').serialize();
         alert($('#formTutor').serialize());
-        $.ajax({
-            url: "Ajax/tutores/insertTutor.php",
-            data: $('#formTutor').serialize(),
-            cache: false,
-            async: true, // por defecto
-            method: "POST",
-            success: respuestaAltaTutor
-        });
-      
+        let txtDni = oFormularioAltaTutor.txtDni.value.trim();
+        let txtNombre = oFormularioAltaTutor.txtNombre.value.trim();
+        let txtAsignatura = oFormularioAltaTutor.txtAsignatura.value.trim();
+
+        $.post("Ajax/tutores/insertTutor.php", {dni : txtDni, 
+                                        nombre : txtNombre, 
+                                        asignatura : txtAsignatura, 
+                                        },procesarAltaTurismo,"json");
         
     }
 
 
 }
-
-function respuestaAltaTutor(resultado) {
-    let datos = JSON.parse(resultado);
-    if (datos["error"]) {
-        alert(datos["mensaje"]);
-    } else {
-        alert(datos["mensaje"]);
+function procesarAltaTurismo(datos)
+{
+    if(datos.error == 0)
+    {
+        alert(datos.mensaje);
         formTutor.reset();
-        $("#formTutor").parent().hide("normal");
+        $("#formTutor").hide();
+
+    }
+    else
+    {
+        alert(datos.mensaje);
     }
 }
 
+
 function limpiarErrores() {
-    // frmAltaArticulo.txtIDArticulo.classList.remove("error");
     formTutor.txtDni.classList.remove("error");
     formTutor.txtNombre.classList.remove("error");
-    formTutor.txtApellido.classList.remove("error");
     formTutor.txtAsignatura.classList.remove("error");
-    // formTutor.txtGrupo.classList.remove("error");
  }
 
