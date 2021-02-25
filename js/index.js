@@ -7,6 +7,7 @@ $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
 $("#btnInicio").click(validarLogin);
 $("#listadoAlumno").click(listarAlumnos);
+$("#listadoAlumno").click(function() {$("#listados").show(); $("#formularios").hide(); listarAlumnos();});
 
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
@@ -33,6 +34,7 @@ function validarLogin() {
     } else {
         frmInicio.txtContraseña.style.color = "black";
     }
+
 }
 
 function abrirAltaAlumno() {
@@ -47,20 +49,7 @@ function abrirAltaAlumno() {
         function() {
             $.getScript("Ajax/alumnos/altaAlumno.js");
         });
-            // $.ajax({
-            //     url: "Ajax/grupos/buscarGrupos.php",
-            //     // data: "FormularioAltaAlumnos.html",
-            //     cache: false,
-            //     async: true, // por defecto
-            //     method: "POST",
-            //     success: function(resultado){
-            //         let datosSelect = JSON.parse(resultado);
-            //         datosSelect.forEach(element => {
-            //             alert(element.idGrupo);
-            //         });
-            //         return datosSelect;
-            //     }
-            // });
+         
         
     } else {
         
@@ -131,7 +120,7 @@ function abrirAltaMensaje(){
 }
 //LIstados alumnos
 function listarAlumnos(){
-    fOcultarFormularios();
+    // fOcultarFormularios();
     fVaciarTabla();
     //Borrar los nodos hijos de la tabla
     let tHead = document.getElementById("tabla").createTHead();
@@ -143,22 +132,23 @@ function listarAlumnos(){
     cabecera.insertCell(-1).textContent = "APELLIDOS";
     cabecera.insertCell(-1).textContent = "EDAD";
     
+    
     while (tBody.firstChild) {
         tBody.removeChild(tBody.firstChild);
       }
     //Añadir las filas a la tabla
     //GET from alumnos
-      $.get("alumnos/listadoAlumnos.php", respuestaListadoAlumnos, "xml");
+      $.get("./Ajax/alumnos/listadoAlumnos.php", respuestaListadoAlumnos, "xml");
       function respuestaListadoAlumnos(oXML){
-        let alumnos = oXML.querySelectorAll("cliente");
+        let alumnos = oXML.querySelectorAll("alumnos");
         
-        alumnos.forEach(function(cliente){
+        alumnos.forEach(function(alumnos){
             let fila = tBody.insertRow(-1);
-            fila.insertCell(-1).textContent = cliente.querySelector("idAlumno").textContent;
-            fila.insertCell(-1).textContent = cliente.querySelector("dniAlumno").textContent;
-            fila.insertCell(-1).textContent = cliente.querySelector("nombreAlumno").textContent;
-            fila.insertCell(-1).textContent = cliente.querySelector("apellido").textContent;
-            fila.insertCell(-1).textContent = cliente.querySelector("edad").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("idAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("dniAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("nombreAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("apellido").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("edad").textContent;
            
         });
         
@@ -167,4 +157,55 @@ function listarAlumnos(){
     document.getElementById("tabla").style.display = "table";
     //$("#body").style.display = "block";
     $("#body").show("normal");
+}
+
+
+
+function listarTutor(){
+    // fOcultarFormularios();
+    fVaciarTabla();
+    //Borrar los nodos hijos de la tabla
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "ID";
+    cabecera.insertCell(-1).textContent = "DNI";
+    cabecera.insertCell(-1).textContent = "NOMBRE";
+    cabecera.insertCell(-1).textContent = "APELLIDOS";
+    cabecera.insertCell(-1).textContent = "EDAD";
+    
+    
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
+    //Añadir las filas a la tabla
+    //GET from alumnos
+      $.get("./Ajax/grupos/listadoAlumnos.php", respuestaListadoAlumnos, "xml");
+      function respuestaListadoAlumnos(oXML){
+        let alumnos = oXML.querySelectorAll("alumnos");
+        
+        alumnos.forEach(function(alumnos){
+            let fila = tBody.insertRow(-1);
+            fila.insertCell(-1).textContent = alumnos.querySelector("idAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("dniAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("nombreAlumno").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("apellido").textContent;
+            fila.insertCell(-1).textContent = alumnos.querySelector("edad").textContent;
+           
+        });
+        
+      }
+    
+    document.getElementById("tabla").style.display = "table";
+    //$("#body").style.display = "block";
+    $("#body").show("normal");
+}
+
+function fVaciarTabla(){
+    let hijosTabla = document.querySelectorAll('#tabla > *');
+    if(hijosTabla.length > 0){
+        hijosTabla.forEach(hijo=>{
+            hijo.remove();
+        })
+    }
 }
