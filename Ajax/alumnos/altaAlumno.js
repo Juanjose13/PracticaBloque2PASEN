@@ -2,6 +2,7 @@
 //# sourceURL=altaArticulo.js;
 $("#btnAñadeAlumno").click(fAceptarAltaAlumno);
 
+
 function fAceptarAltaAlumno()
 {
     let oFormularioAltaAlumno = document.getElementById("formAlumno");

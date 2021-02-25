@@ -1,22 +1,7 @@
 'use strict';
 //# sourceURL=altaArticulo.js;
 $("#btnMensaje").click(fAceptarAltaMensaje);
-// alert("llegó");
-// $("#selectPrimero").attr("style","display: none;");
-// $("#selectSegundo").attr("style","display: none;");
 
-// $(document).ready(function(){
-//     $("#categoria").change(function(){
-//         $("#selectPrimero").removeAttr("style","display: none;");
-//         $("#categoria").attr("style","display: none;");
-//     });
-//   });
-
-//   $('select#categoria').on('change',function(){
-//     var valor = $(this).val();
-//     function select(valor);
-    
-// });
 
   
 function fAceptarAltaMensaje()

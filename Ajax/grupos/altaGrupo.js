@@ -2,6 +2,7 @@
 
 $("#btnAñadeGrupo").click(fAceptarAltaGrupo);
 
+
 function fAceptarAltaGrupo()
 {
     let oFormularioAltaGrupo = document.getElementById("formGrupo");

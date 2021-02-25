@@ -1,21 +1,13 @@
-
-------------------------------------------------------------------------------------------------------------------------
---------------------                  PROVISIONAL                   --------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------
-
-
-
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2021 a las 18:13:41
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 25-02-2021 a las 20:51:07
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -55,7 +47,19 @@ INSERT INTO `alumnos` (`idAlumno`, `dniAlumno`, `nombreAlumno`, `apellido`, `eda
 (5, '96325749M', 'Marcos', 'Acevedo', 22),
 (6, '32145678K', 'Domingo', 'Desert', 23),
 (7, '12314547A', 'Acevedo', 'Warfare', 21),
-(8, '98745632N', 'Alvaro', 'Walker', 30);
+(8, '98745632N', 'Alvaro', 'Walker', 30),
+(9, '11222333D', 'Alvaro', 'Jota', 12),
+(10, '23456789V', 'Chasquito', 'Manco', 3),
+(11, '11222333D', 'lalalal', 'jajaj', 34),
+(12, '23456789C', 'Alvaro', 'jaja', 3),
+(13, '32456587D', 'alalal', 'sda', 34),
+(14, '23342356B', 'Acevedo', 'Manco', 3),
+(21, '67239187S', 'kakaka', 'kaskdlask', 3),
+(22, '78459696A', 'Lolo', 'García', 12),
+(23, '78459696A', 'Lolo', 'García', 12),
+(24, '78451278C', 'Juan José', 'Acevedo', 22),
+(25, '23543214C', 'Alvaro', 'columbiaaa', 3),
+(26, '63728192C', 'akakak', 'jajaja', 3);
 
 -- --------------------------------------------------------
 
@@ -81,7 +85,10 @@ INSERT INTO `grupos` (`idGrupo`, `grupo`, `nAlumnos`, `aula`, `centro`, `idTutor
 (2, 'B', 30, 'Grande', 'Lucus Solis', 2),
 (3, 'C', 20, 'Pequeña', 'Martinez Montañes', 3),
 (4, 'D', 15, 'Pequeña', 'Grupo Studium', 4),
-(5, 'E', 26, 'Mediana', 'Vistazul', 2);
+(5, 'E', 26, 'Mediana', 'Vistazul', 2),
+(6, 'F', 56, 'Grande', 'Virgen Rosario', NULL),
+(7, 'G', 10, 'Pequeña', 'Virgen María', NULL),
+(8, 'H', 56, 'Grande', 'Hnos Machado', 6);
 
 -- --------------------------------------------------------
 
@@ -107,7 +114,10 @@ INSERT INTO `gruposalumnos` (`idGrupoAlumno`, `idAlumnoFK`, `idGrupoFK`) VALUES
 (5, 3, 1),
 (6, 4, 3),
 (7, 5, 5),
-(8, 7, 1);
+(8, 7, 1),
+(9, 21, 2),
+(10, 23, 1),
+(14, 24, 8);
 
 -- --------------------------------------------------------
 
@@ -120,9 +130,20 @@ CREATE TABLE `mensajes` (
   `nombreEmisor` varchar(45) DEFAULT NULL,
   `nombreReceptor` varchar(45) DEFAULT NULL,
   `tituloMensaje` varchar(45) DEFAULT NULL,
+  `contenidoMensaje` varchar(280) DEFAULT NULL,
   `idTutorFK` int(11) DEFAULT NULL,
   `idAlumnoFK` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`idMensaje`, `nombreEmisor`, `nombreReceptor`, `tituloMensaje`, `contenidoMensaje`, `idTutorFK`, `idAlumnoFK`) VALUES
+(1, 'Javier', 'Acevedo', 'Prueba', 'Probando los mensajes', 2, 7),
+(2, 'Javier', 'Acevedo', 'Prueba', 'Probando los mensajes', 2, 7),
+(3, 'Inma', 'Alvaro', 'Prueba', 'Probando', 4, 9),
+(4, 'Javier', 'Domingo', 'Prueba', 'Probando', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -146,7 +167,10 @@ INSERT INTO `tutores` (`idTutor`, `dniTutor`, `nombreTutor`, `asignatura`) VALUE
 (2, '98765432C', 'Javier', 'Diseño'),
 (3, '36985214M', 'Juan', 'Servidor'),
 (4, '14785236L', 'Inma', 'Sistemas'),
-(5, '85236975', 'Maria', 'Programacion');
+(5, '85236975', 'Maria', 'Programacion'),
+(6, '78451245C', 'Alvaro', 'Historia'),
+(8, '65723456Y', 'Lolo', 'jajaa'),
+(15, '34253412V', 'Domingo', 'Programacion');
 
 --
 -- Índices para tablas volcadas
@@ -195,31 +219,31 @@ ALTER TABLE `tutores`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `idGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `gruposalumnos`
 --
 ALTER TABLE `gruposalumnos`
-  MODIFY `idGrupoAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idGrupoAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tutores`
 --
 ALTER TABLE `tutores`
-  MODIFY `idTutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idTutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas

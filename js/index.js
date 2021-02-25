@@ -1,14 +1,15 @@
 'use strict';
 
 // Carga dinámica de formularios
+
 $("#altaAlumno").click(abrirAltaAlumno);
 $("#altaTutor").click(abrirAltaTutor);
 $("#altaMensaje").click(abrirAltaMensaje);
 $("#altaGrupo").click(abrirAltaGrupo);
 $("#btnInicio").click(validarLogin);
-// $("#listadoAlumno").click(listarAlumnos);
-// $("#altaAlumno").click(function() {$("#listados").hide(); $("#formulario").hide(); rellenarCombosTurismos();});
 $("#listadoAlumno").click(listarAlumnos);
+$("#listadoTutor").click(listarTutor);
+$("#listadoGrupo").click(listarGrupo);
 
 /* $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado); */
@@ -41,8 +42,11 @@ function validarLogin() {
 function abrirAltaAlumno() {
 
     // Oculto todos los formularios menos este
+   
     $("form:not('#divFrmAltaAlumno')").hide("normal");
     $("#body").hide("normal");
+    $("#listados").hide("normal");
+    $("#formularios").show("normal");
 
     // Verifico si ya he cargado el formulario antes
     if ($('#formAlumno').length == 0) {
@@ -52,8 +56,7 @@ function abrirAltaAlumno() {
             $.getScript("Ajax/alumnos/altaAlumno.js");
         });
          
-        rellenarCombosGrupos();
-    } else {
+        } else {
         
         
         // Lo muestro si está oculto
@@ -63,9 +66,11 @@ function abrirAltaAlumno() {
 }
 
 function abrirAltaTutor(){
-    // Oculto todos los formularios menos este
+   // Oculto todos los formularios menos este
     $("form:not('#divFrmAltaTutor')").hide("normal");
     $("#body").hide("normal");
+    $("#listados").hide("normal");
+    $("#formularios").show("normal");
     // $("#formularios").hide("normal");
     
     // Verifico si ya he cargado el formulario antes
@@ -83,9 +88,12 @@ function abrirAltaTutor(){
 }
 
 function abrirAltaGrupo(){
+
     // Oculto todos los formularios menos este
     $("form:not('#divFrmAltaGrupo')").hide("normal");
     $("#body").hide("normal");
+    $("#listados").hide("normal");
+    $("#formularios").show("normal");
     // $("#formularios").hide("normal");
     
     // Verifico si ya he cargado el formulario antes
@@ -102,9 +110,12 @@ function abrirAltaGrupo(){
     }
 }
 function abrirAltaMensaje(){
+    
     // Oculto todos los formularios menos este
     $("form:not('#divFrmAltaMensaje')").hide("normal");
     $("#body").hide("normal");
+    $("#listados").hide("normal");
+    $("#formularios").show("normal");
     // $("#formularios").hide("normal");
     
     // Verifico si ya he cargado el formulario antes
@@ -189,8 +200,9 @@ function procesarRellenarComboGrupo(olistadoGrupo)
 
 //LIstados alumnos
 function listarAlumnos(){
-    // fOcultarFormularios();
+    fOcultarFormularios();
     fVaciarTabla();
+    $("#listados").show();
     //Borrar los nodos hijos de la tabla
     let tHead = document.getElementById("tabla").createTHead();
     let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
@@ -231,8 +243,9 @@ function listarAlumnos(){
 
 
 function listarTutor(){
-    // fOcultarFormularios();
+    fOcultarFormularios();
     fVaciarTabla();
+    $("#listados").show();
     //Borrar los nodos hijos de la tabla
     let tHead = document.getElementById("tabla").createTHead();
     let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
@@ -240,8 +253,7 @@ function listarTutor(){
     cabecera.insertCell(-1).textContent = "ID";
     cabecera.insertCell(-1).textContent = "DNI";
     cabecera.insertCell(-1).textContent = "NOMBRE";
-    cabecera.insertCell(-1).textContent = "APELLIDOS";
-    cabecera.insertCell(-1).textContent = "EDAD";
+    cabecera.insertCell(-1).textContent = "ASIGNATURA";
     
     
     while (tBody.firstChild) {
@@ -249,17 +261,16 @@ function listarTutor(){
       }
     //Añadir las filas a la tabla
     //GET from alumnos
-      $.get("./Ajax/grupos/listadoAlumnos.php", respuestaListadoAlumnos, "xml");
-      function respuestaListadoAlumnos(oXML){
-        let alumnos = oXML.querySelectorAll("alumnos");
+      $.get("./Ajax/tutores/listadoTutores.php", respuestaListadoTutor, "xml");
+      function respuestaListadoTutor(oXML){
+        let tutor = oXML.querySelectorAll("tutores");
         
-        alumnos.forEach(function(alumnos){
+        tutor.forEach(function(tutor){
             let fila = tBody.insertRow(-1);
-            fila.insertCell(-1).textContent = alumnos.querySelector("idAlumno").textContent;
-            fila.insertCell(-1).textContent = alumnos.querySelector("dniAlumno").textContent;
-            fila.insertCell(-1).textContent = alumnos.querySelector("nombreAlumno").textContent;
-            fila.insertCell(-1).textContent = alumnos.querySelector("apellido").textContent;
-            fila.insertCell(-1).textContent = alumnos.querySelector("edad").textContent;
+            fila.insertCell(-1).textContent = tutor.querySelector("idTutor").textContent;
+            fila.insertCell(-1).textContent = tutor.querySelector("dniTutor").textContent;
+            fila.insertCell(-1).textContent = tutor.querySelector("nombreTutor").textContent;
+            fila.insertCell(-1).textContent = tutor.querySelector("asignatura").textContent;
            
         });
         
@@ -268,6 +279,72 @@ function listarTutor(){
     document.getElementById("tabla").style.display = "table";
     //$("#body").style.display = "block";
     $("#body").show("normal");
+}
+function listarGrupo(){
+    fOcultarFormularios();
+    fVaciarTabla();
+    $("#listados").show("normal");
+    //Borrar los nodos hijos de la tabla
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "ID";
+    cabecera.insertCell(-1).textContent = "GRUPO";
+    cabecera.insertCell(-1).textContent = "Nº ALUMNOS";
+    cabecera.insertCell(-1).textContent = "AULA";
+    cabecera.insertCell(-1).textContent = "CENTRO";
+    
+    
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
+    //Añadir las filas a la tabla
+    //GET from alumnos
+      $.get("./Ajax/grupos/listadoGrupos.php", respuestaListadoGrupo, "xml");
+      function respuestaListadoGrupo(oXML){
+        let grupo = oXML.querySelectorAll("grupos");
+        
+        grupo.forEach(function(grupo){
+            let fila = tBody.insertRow(-1);
+            fila.insertCell(-1).textContent = grupo.querySelector("idGrupo").textContent;
+            fila.insertCell(-1).textContent = grupo.querySelector("grupo").textContent;
+            fila.insertCell(-1).textContent = grupo.querySelector("nAlumnos").textContent;
+            fila.insertCell(-1).textContent = grupo.querySelector("aula").textContent;
+            fila.insertCell(-1).textContent = grupo.querySelector("centro").textContent;
+           
+        });
+        
+      }
+    
+    document.getElementById("tabla").style.display = "table";
+    //$("#body").style.display = "block";
+    $("#body").show("normal");
+}
+
+function fOcultarFormularios(){
+    document.getElementById("formularios").style.display = "none";
+    //frmAltaEmpleado.style.display = "none";
+    if(document.getElementById("formAlumno") != null){
+        formAlumno.style.display = "none";
+    }
+    /*if($.contains(document.body, document.getElementById("frmAltaArticulo") )) {
+        frmAltaArticulo.style.display = "none";
+    }*/
+    if(document.getElementById("formTutor") != null){
+        formTutor.style.display = "none";
+    }
+    if(document.getElementById("formGrupo") != null){
+        formGrupo.style.display = "none";
+    }
+    //frmAltaCliente.style.display = "none";  
+    
+}
+function fOcultarListados(){
+    document.getElementById("listados").style.display = "none";
+    //frmAltaEmpleado.style.display = "none";
+    if(document.getElementById("tabla") != null){
+        listados.style.display = "none";
+    }
 }
 
 function fVaciarTabla(){
