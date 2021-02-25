@@ -133,7 +133,7 @@ function abrirAltaMensaje(){
 }
 function rellenarCombosGrupos()
 {
-    alert("rellenarCombosGrupos");
+    
     var oListaGrupo = null;
     if(localStorage["grupo"] != null)
     {
