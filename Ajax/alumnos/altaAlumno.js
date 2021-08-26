@@ -9,7 +9,7 @@ function fAceptarAltaAlumno()
     let mensaje = "ERROR:";
     let bValido = true;
     limpiarErrores();
-    
+    //PROBANDO GIT
     //VALIDAR FORMULARIOS -> DNI 11222333A {9 nºs y letra en mayúscula}
     let sDni = oFormularioAltaAlumno.txtDni.value.trim();
     let oVerificaDni = /^\d{8}[A-Z]$/;
